@@ -5,23 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Siti Amelia — Portofolio Profesional</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --primary: #1E3A5F;      /* Navy blue */
-      --primary-light: #3A5A7A;
-      --primary-dark: #0F2840;
-      --secondary: #4A6A8A;
-      --accent: #D4A373;       /* Gold/beige */
+      --primary: #0F1A2E;
+      --primary-light: #1A2D4A;
+      --primary-dark: #0A111F;
+      --secondary: #2C4A6E;
+      --accent: #D4A373;
       --accent-light: #F0E6D3;
-      --bg: #F8F9FA;
+      --accent-glow: rgba(212, 163, 115, 0.2);
+      --bg: #F5F6F8;
       --white: #FFFFFF;
-      --text: #1A1A2E;
-      --muted: #4A4A5A;
-      --border: rgba(30, 58, 95, 0.12);
-      --shadow: 0 4px 24px rgba(30, 58, 95, 0.08);
+      --text: #141824;
+      --text-light: #4A5068;
+      --text-muted: #7A8098;
+      --border: rgba(15, 26, 46, 0.08);
+      --shadow-sm: 0 2px 8px rgba(15, 26, 46, 0.06);
+      --shadow-md: 0 8px 32px rgba(15, 26, 46, 0.08);
+      --shadow-lg: 0 20px 60px rgba(15, 26, 46, 0.12);
+      --shadow-xl: 0 40px 80px rgba(15, 26, 46, 0.16);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     html { scroll-behavior: smooth; }
@@ -32,729 +40,1274 @@
       color: var(--text);
       min-height: 100vh;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 100% 0%, rgba(30, 58, 95, 0.04) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 60% at 0% 100%, rgba(74, 106, 138, 0.03) 0%, transparent 60%);
-      pointer-events: none;
-    }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 
-    .wrap {
-      position: relative;
-      z-index: 1;
-      max-width: 880px;
+    /* ═══ GLOBAL ═══ */
+    .container {
+      max-width: 1024px;
       margin: 0 auto;
-      padding: 0 1.5rem 4rem;
+      padding: 0 2rem;
+    }
+
+    /* ═══ NAVBAR ═══ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.8rem 0;
+      transition: var(--transition);
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--primary);
+      color: var(--white) !important;
+      padding: 6px 18px;
+      border-radius: 30px;
+      transition: var(--transition);
+    }
+    .nav-cta:hover { background: var(--secondary) !important; transform: translateY(-2px); }
+    .nav-cta::after { display: none !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: var(--transition);
     }
 
     /* ═══ HERO ═══ */
     .hero {
+      padding: 8rem 0 4rem;
       position: relative;
-      padding: 3rem 2.5rem 2.5rem;
-      text-align: center;
-      margin: 1.5rem -1.5rem 2rem;
-      background: var(--white);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
       overflow: hidden;
+      background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+      border-radius: 0 0 40px 40px;
+      margin: 0 -2rem;
     }
 
     .hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
-    }
-
-    .hero-icon {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 1rem;
+      top: -40%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
       border-radius: 50%;
-      background: var(--primary);
-      display: flex;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(212, 163, 115, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
       align-items: center;
-      justify-content: center;
+    }
+
+    .hero-content {
       color: var(--white);
-      font-size: 2rem;
-      font-weight: 600;
-      font-family: 'Playfair Display', serif;
-      border: 3px solid var(--accent);
-      box-shadow: 0 4px 16px rgba(30, 58, 95, 0.15);
     }
 
-    .hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: var(--primary-dark);
-      letter-spacing: -0.5px;
-      margin-bottom: 0.2rem;
-    }
-
-    .hero-sub {
-      font-size: 0.85rem;
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212, 163, 115, 0.2);
+      border: 1px solid rgba(212, 163, 115, 0.3);
+      padding: 4px 16px;
+      border-radius: 30px;
+      font-size: 0.75rem;
       font-weight: 500;
-      color: var(--secondary);
-      letter-spacing: 0.8px;
+      color: var(--accent);
+      letter-spacing: 1px;
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
 
-    .hero-meta {
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .hero-name span { color: var(--accent); }
+
+    .hero-title {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
       display: flex;
+      gap: 1rem;
       flex-wrap: wrap;
-      gap: 8px 16px;
-      justify-content: center;
-      margin-bottom: 1.2rem;
     }
 
-    .meta-chip {
-      font-size: 0.8rem;
-      color: var(--muted);
-      background: var(--bg);
-      padding: 4px 14px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-    }
-
-    .hero-contacts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    .contact-pill {
-      background: var(--bg);
-      border: 1px solid var(--border);
+    .btn-primary {
+      background: var(--accent);
+      color: var(--primary-dark);
+      padding: 10px 28px;
       border-radius: 30px;
-      padding: 8px 18px;
-      font-size: 0.85rem;
-      color: var(--text);
-      display: flex;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      text-decoration: none;
-      transition: all 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(212, 163, 115, 0.4);
     }
 
-    .contact-pill:hover {
-      background: var(--primary);
+    .btn-outline {
+      background: transparent;
       color: var(--white);
-      border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(30, 58, 95, 0.2);
+      padding: 10px 28px;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--accent);
+      transform: translateY(-3px);
     }
 
-    .contact-pill .icon {
-      flex-shrink: 0;
-      opacity: 0.7;
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    .contact-pill:hover .icon {
-      opacity: 1;
-      filter: brightness(10);
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-avatar {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+      border: 3px solid rgba(212, 163, 115, 0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--accent);
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-avatar::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 163, 115, 0.1);
+      animation: pulse-ring 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.05); opacity: 0; }
+    }
+
+    .hero-contact-floating {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      gap: 12px;
+    }
+
+    .floating-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    .floating-btn:hover {
+      background: var(--accent);
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 24px rgba(212, 163, 115, 0.3);
     }
 
     /* ═══ SECTION ═══ */
     .section {
-      margin-top: 2rem;
-      animation: fadeUp 0.5s ease both;
+      padding: 4rem 0;
     }
-    .section:nth-child(2) { animation-delay: 0.06s; }
-    .section:nth-child(3) { animation-delay: 0.12s; }
-    .section:nth-child(4) { animation-delay: 0.18s; }
-    .section:nth-child(5) { animation-delay: 0.24s; }
-    .section:nth-child(6) { animation-delay: 0.30s; }
 
-    .sec-head {
+    .section-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 1rem;
+      gap: 14px;
+      margin-bottom: 2.5rem;
     }
 
-    .sec-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--white);
-    }
-
-    .sec-title {
+    .section-number {
       font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: 1.2rem;
-      color: var(--primary-dark);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      opacity: 0.3;
+      line-height: 1;
     }
 
-    .sec-line {
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .section-line {
       flex: 1;
       height: 1px;
       background: linear-gradient(to right, var(--border), transparent);
     }
 
     /* ═══ ABOUT ═══ */
-    .about-card {
-      background: var(--white);
-      border-left: 4px solid var(--accent);
-      border-radius: 0 12px 12px 0;
-      padding: 1.2rem 1.8rem;
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--muted);
-      box-shadow: var(--shadow);
-    }
-
-    /* ═══ INFO GRID ═══ */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 10px;
-    }
-
-    .info-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 16px;
-      transition: box-shadow 0.2s;
-      box-shadow: var(--shadow);
-    }
-    .info-card:hover { box-shadow: 0 6px 20px rgba(30, 58, 95, 0.08); }
-
-    .info-lbl {
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--secondary);
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-
-    .info-val {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    /* ═══ EDUCATION ═══ */
-    .edu-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .edu-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      transition: box-shadow 0.2s;
-      box-shadow: var(--shadow);
-    }
-    .edu-card:hover { box-shadow: 0 6px 20px rgba(30, 58, 95, 0.08); }
-
-    .edu-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .edu-info { flex: 1; }
-    .edu-school { font-size: 0.95rem; font-weight: 600; color: var(--text); }
-    .edu-detail { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
-
-    .edu-tag {
-      background: var(--accent-light);
-      color: var(--primary-dark);
-      border: 1px solid rgba(212, 163, 115, 0.3);
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 20px;
-      white-space: nowrap;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-    }
-
-    .gpa-strip {
-      margin-top: 12px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: var(--shadow);
-    }
-
-    .gpa-lbl { font-size: 0.85rem; font-weight: 500; color: var(--primary); }
-    .gpa-sub { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
-    .gpa-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    /* ═══ SKILLS ═══ */
-    .skills-wrap {
+    .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 2.5rem;
+      align-items: start;
     }
 
-    @media (max-width: 520px) {
-      .skills-wrap { grid-template-columns: 1fr; }
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.9;
     }
+    .about-text p + p { margin-top: 1rem; }
 
-    .skill-group-lbl {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--secondary);
-      margin-bottom: 10px;
-    }
-
-    .skill-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .skill-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 0.85rem;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.2s;
-      box-shadow: var(--shadow);
-    }
-    .skill-item:hover {
-      border-color: var(--primary-light);
-      background: var(--bg);
-      transform: translateX(4px);
-    }
-
-    .sk-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .sk-soft { background: var(--primary-light); }
-    .sk-hard { background: var(--accent); }
-
-    /* ═══ EXPERIENCE ═══ */
-    .exp-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.2rem 1.5rem;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-
-    .exp-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+    .about-highlight {
+      display: inline-block;
       background: var(--accent-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
       color: var(--primary);
+      padding: 2px 12px;
+      border-radius: 6px;
+      font-weight: 600;
     }
 
-    .exp-content { flex: 1; }
-    .exp-title { font-weight: 600; color: var(--text); font-size: 0.95rem; }
-    .exp-org { font-weight: 500; color: var(--secondary); font-size: 0.85rem; }
-    .exp-desc { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
-
-    /* ═══ PORTFOLIO / PROYEK ═══ */
-    .project-grid {
+    .about-info-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
 
-    .project-item {
+    .about-info-card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .about-info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+    .about-info-card .label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .about-info-card .value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    /* ═══ EDUCATION ═══ */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 4px var(--accent-light);
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--primary);
+    }
+    .timeline-sub {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      font-weight: 500;
+    }
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+    .timeline-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--primary);
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 2px 12px;
+      border-radius: 20px;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .gpa-banner {
+      margin-top: 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .gpa-banner:hover { box-shadow: var(--shadow-md); }
+    .gpa-banner .label { font-size: 0.85rem; color: var(--text-light); }
+    .gpa-banner .sub { font-size: 0.75rem; color: var(--text-muted); }
+    .gpa-banner .value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* ═══ EXPERIENCE ═══ */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .exp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+
+    .exp-card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .exp-card .title { font-weight: 600; font-size: 0.95rem; color: var(--primary); }
+    .exp-card .org { font-size: 0.8rem; color: var(--secondary); font-weight: 500; }
+    .exp-card .desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 8px;
+      line-height: 1.7;
+    }
+    .exp-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .exp-card .tags span {
+      background: var(--bg);
+      font-size: 0.7rem;
+      padding: 2px 10px;
+      border-radius: 20px;
+      color: var(--text-muted);
+    }
+
+    /* ═══ SKILLS ═══ */
+    .skills-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .skill-group h4 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .skill-bar {
+      margin-bottom: 1rem;
+    }
+    .skill-bar .label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .skill-bar .label span { color: var(--text-muted); font-weight: 400; }
+    .skill-bar .track {
+      width: 100%;
+      height: 6px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .skill-bar .fill {
+      height: 100%;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      transition: width 1s ease;
+      width: 0;
+    }
+    .skill-bar .fill.animated { width: var(--w); }
+
+    /* ═══ LANGUAGES ═══ */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+
+    .lang-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       padding: 1rem;
       text-align: center;
-      box-shadow: var(--shadow);
-      transition: all 0.2s;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
     }
-
-    .project-item:hover {
+    .lang-item:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(30, 58, 95, 0.12);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+    .lang-item .name { font-weight: 600; font-size: 0.9rem; color: var(--primary); }
+    .lang-item .level {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .lang-item .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 6px;
+    }
+    .lang-item .dot.active { background: #4CAF50; }
+    .lang-item .dot.partial { background: #FFC107; }
+    .lang-item .dot.basic { background: #FF5722; }
+
+    /* ═══ PORTFOLIO ═══ */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
     }
 
-    .project-item .icon {
-      font-size: 1.8rem;
-      margin-bottom: 6px;
-    }
-    .project-item .name { font-weight: 600; font-size: 0.85rem; color: var(--text); }
-    .project-item .desc { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
-
-    /* ═══ FOOTER ═══ */
-    .footer {
-      margin-top: 2.5rem;
+    .portfolio-item {
       background: var(--white);
-      border-radius: 16px;
-      padding: 2rem;
-      text-align: center;
       border: 1px solid var(--border);
-      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
       position: relative;
       overflow: hidden;
     }
-
-    .footer::before {
+    .portfolio-item::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+    .portfolio-item:hover::before { transform: scaleX(1); }
+    .portfolio-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
     }
 
-    .footer-name {
+    .portfolio-item .icon { font-size: 2.2rem; margin-bottom: 6px; }
+    .portfolio-item .name { font-weight: 600; font-size: 0.9rem; color: var(--primary); }
+    .portfolio-item .desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* ═══ REFERENCES ═══ */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .ref-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .ref-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .ref-item .name { font-weight: 600; font-size: 0.9rem; color: var(--primary); }
+    .ref-item .role { font-size: 0.8rem; color: var(--secondary); }
+    .ref-item .contact { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* ═══ FOOTER ═══ */
+    .footer {
+      background: var(--primary-dark);
+      color: var(--white);
+      padding: 3rem 0;
+      margin: 0 -2rem;
+      border-radius: 40px 40px 0 0;
+    }
+
+    .footer .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand .name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--primary-dark);
-      margin-bottom: 4px;
-      position: relative;
-      z-index: 1;
+      font-size: 1.6rem;
+      font-weight: 700;
     }
-
-    .footer-sub {
-      font-size: 0.8rem;
-      color: var(--secondary);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-divider {
-      width: 40px;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--accent), transparent);
-      margin: 10px auto;
-    }
-
-    .footer-contact {
+    .footer-brand .name span { color: var(--accent); }
+    .footer-brand p {
+      color: rgba(255,255,255,0.5);
       font-size: 0.85rem;
-      color: var(--muted);
-      position: relative;
-      z-index: 1;
+      margin-top: 6px;
+      max-width: 300px;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
+    .footer h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+    .footer-social a:hover {
+      background: var(--accent);
+      color: var(--primary-dark);
+      transform: translateY(-4px);
+    }
+
+    .footer-bottom {
+      grid-column: 1 / -1;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 968px) {
+      .hero .container { grid-template-columns: 1fr; text-align: center; }
+      .hero-desc { margin: 0 auto 2rem; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { max-width: 400px; margin: 2rem auto 0; }
+      .hero-visual { order: -1; }
+      .hero-avatar { width: 200px; height: 200px; font-size: 3.5rem; }
+      .hero { padding: 6rem 0 3rem; }
+      .hero-contact-floating { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-info-cards { grid-template-columns: 1fr 1fr; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .skills-container { grid-template-columns: 1fr; }
+      .footer .container { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand p { margin: 6px auto 0; }
+      .footer-social { justify-content: center; }
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; gap: 1rem; padding: 1rem 0; }
+      .hamburger { display: flex; }
+      .navbar .container { flex-wrap: wrap; }
     }
 
     @media (max-width: 480px) {
-      .hero { padding: 2rem 1.2rem; }
-      .hero-name { font-size: 1.6rem; }
-      .info-grid { grid-template-columns: 1fr; }
-      .edu-card { flex-wrap: wrap; }
-      .project-grid { grid-template-columns: 1fr 1fr; }
+      .container { padding: 0 1rem; }
+      .hero-name { font-size: 2.2rem; }
+      .hero-avatar { width: 150px; height: 150px; font-size: 2.8rem; }
+      .about-info-cards { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .stat-item:last-child { grid-column: span 2; }
+      .gpa-banner { flex-direction: column; text-align: center; gap: 8px; }
+      .section-title { font-size: 1.2rem; }
     }
 
-    @media print {
-      body::before { display: none; }
-      .hero::before { display: none; }
-      .section { animation: none; }
-      .hero, .about-card, .info-card, .edu-card, .skill-item, .exp-card, .project-item, .footer {
-        box-shadow: none;
-        border-color: #ccc;
-      }
+    /* ═══ ANIMATIONS ═══ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ═══ UTILITY ═══ */
+    .text-accent { color: var(--accent); }
+    .text-muted { color: var(--text-muted); }
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mt-3 { margin-top: 2rem; }
   </style>
 </head>
 <body>
-<div class="wrap">
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-icon">SA</div>
-    <h1 class="hero-name">Siti Amelia</h1>
-    <p class="hero-sub">Fresh Graduate &nbsp;·&nbsp; Siap Berkontribusi</p>
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo">Siti<span>Amelia</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#education">Pendidikan</a></li>
+      <li><a href="#experience">Pengalaman</a></li>
+      <li><a href="#skills">Kompetensi</a></li>
+      <li><a href="#portfolio">Portofolio</a></li>
+      <li><a href="#contact" class="nav-cta">Kontak</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <div class="hero-meta">
-      <span class="meta-chip">Islam</span>
-      <span class="meta-chip">Belum Menikah</span>
-      <span class="meta-chip">Lahir 13 November 2006</span>
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">✦ Fresh Graduate 2024</span>
+      <h1 class="hero-name">Siti <span>Amelia</span></h1>
+      <p class="hero-title">Lulusan SMK · Siap Berkontribusi &amp; Berkembang</p>
+      <p class="hero-desc">
+        Saya adalah lulusan SMKN 1 Cabangbungin dengan nilai rata-rata <strong style="color:var(--accent);">84,84</strong>.
+        Memiliki dedikasi tinggi, disiplin, dan siap memberikan kontribusi terbaik di dunia kerja profesional.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">📩 Hubungi Saya</a>
+        <a href="#portfolio" class="btn-outline">📂 Lihat Portofolio</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">84,84</div>
+          <div class="stat-label">Nilai Rata-rata</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Jenjang Pendidikan</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2024</div>
+          <div class="stat-label">Tahun Lulus</div>
+        </div>
+      </div>
     </div>
-
-    <div class="hero-contacts">
-      <a class="contact-pill" href="tel:085770592217">
-        <span class="icon">📞</span>0857-7059-2217
-      </a>
-      <a class="contact-pill" href="mailto:sitiamelia@email.com">
-        <span class="icon">✉️</span>sitiamelia@email.com
-      </a>
-      <span class="contact-pill">
-        <span class="icon">📍</span>Kp. Pulo Rengas, Sindangjaya, Kab. Bekasi
-      </span>
+    <div class="hero-visual">
+      <div class="hero-avatar">SA</div>
     </div>
   </div>
-
-  <!-- PROFIL / TENTANG SAYA -->
-  <div class="section">
-    <div class="sec-head">
-      <div class="sec-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-          <circle cx="12" cy="8" r="4"/>
-          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <span class="sec-title">Tentang Saya</span>
-      <div class="sec-line"></div>
-    </div>
-    <div class="about-card">
-      Saya adalah lulusan SMKN 1 Cabangbungin jurusan IPA tahun 2024, dengan semangat tinggi untuk memulai karier profesional. Saya dikenal sebagai pribadi yang disiplin, jujur, dan bertanggung jawab dalam setiap pekerjaan. Mampu bekerja baik secara mandiri maupun dalam tim, mudah beradaptasi di lingkungan baru, dan selalu bersemangat untuk terus belajar serta berkembang. Dengan motivasi kuat dan dedikasi penuh, saya siap memberikan kontribusi terbaik di tempat kerja.
-    </div>
+  <div class="hero-contact-floating">
+    <a href="tel:085770592217" class="floating-btn" title="Telepon">📞</a>
+    <a href="mailto:sitiamelia@email.com" class="floating-btn" title="Email">✉️</a>
+    <a href="#" class="floating-btn" title="WhatsApp">💬</a>
   </div>
+</section>
 
-  <!-- INFORMASI PERSONAL -->
-  <div class="section">
-    <div class="sec-head">
-      <div class="sec-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-          <rect x="3" y="4" width="18" height="16" rx="2"/>
-          <path d="M8 2v4M16 2v4M3 10h18" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <span class="sec-title">Informasi Personal</span>
-      <div class="sec-line"></div>
-    </div>
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-lbl">Nama Lengkap</div>
-        <div class="info-val">Siti Amelia</div>
-      </div>
-      <div class="info-card">
-        <div class="info-lbl">Tempat, Tanggal Lahir</div>
-        <div class="info-val">Bekasi, 13 November 2006</div>
-      </div>
-      <div class="info-card">
-        <div class="info-lbl">Agama</div>
-        <div class="info-val">Islam</div>
-      </div>
-      <div class="info-card">
-        <div class="info-lbl">Status Pernikahan</div>
-        <div class="info-val">Belum Menikah</div>
-      </div>
-      <div class="info-card">
-        <div class="info-lbl">Kewarganegaraan</div>
-        <div class="info-val">Indonesia (WNI)</div>
-      </div>
-      <div class="info-card">
-        <div class="info-lbl">Alamat</div>
-        <div class="info-val">Kp. Pulo Rengas RT 005/002, Desa Sindangjaya, Kec. Cabangbungin, Kab. Bekasi</div>
-      </div>
-    </div>
-  </div>
+<div class="container">
 
-  <!-- PENDIDIKAN -->
-  <div class="section">
-    <div class="sec-head">
-      <div class="sec-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-          <path d="M12 3L2 8l10 5 10-5-10-5z" stroke-linejoin="round"/>
-          <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <span class="sec-title">Pendidikan</span>
-      <div class="sec-line"></div>
+  <!-- ═══ TENTANG SAYA ═══ -->
+  <section class="section fade-up" id="about">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Tentang Saya</h2>
+      <div class="section-line"></div>
     </div>
-    <div class="edu-list">
-      <div class="edu-card">
-        <div class="edu-dot" style="background:#4A6A8A"></div>
-        <div class="edu-info">
-          <div class="edu-school">SDN Sindangjaya 01</div>
-          <div class="edu-detail">2011 – 2018 &nbsp;·&nbsp; Kabupaten Bekasi</div>
-        </div>
-        <span class="edu-tag">SD</span>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Saya adalah <span class="about-highlight">lulusan SMKN 1 Cabangbungin</span> jurusan IPA tahun 2024
+          dengan nilai rata-rata <strong>84,84</strong>. Selama masa sekolah, saya dikenal sebagai pribadi yang
+          <strong>disiplin, bertanggung jawab, dan memiliki integritas tinggi</strong> dalam setiap tugas yang diberikan.
+        </p>
+        <p>
+          Saya memiliki kemampuan <strong>beradaptasi dengan cepat</strong> di lingkungan baru, mampu bekerja
+          <strong>secara mandiri maupun dalam tim</strong>, serta selalu bersemangat untuk <strong>terus belajar
+          dan mengembangkan diri</strong>. Dengan motivasi kuat dan dedikasi penuh, saya siap memberikan
+          kontribusi terbaik bagi perusahaan tempat saya berkarya.
+        </p>
       </div>
-      <div class="edu-card">
-        <div class="edu-dot" style="background:#3A5A7A"></div>
-        <div class="edu-info">
-          <div class="edu-school">SMPN 1 Cabangbungin</div>
-          <div class="edu-detail">2018 – 2021 &nbsp;·&nbsp; Kabupaten Bekasi</div>
+      <div class="about-info-cards">
+        <div class="about-info-card">
+          <div class="label">Nama Lengkap</div>
+          <div class="value">Siti Amelia</div>
         </div>
-        <span class="edu-tag">SMP</span>
-      </div>
-      <div class="edu-card">
-        <div class="edu-dot" style="background:#1E3A5F"></div>
-        <div class="edu-info">
-          <div class="edu-school">SMKN 1 Cabangbungin</div>
-          <div class="edu-detail">2021 – 2024 &nbsp;·&nbsp; Peminatan Matematika & IPA</div>
+        <div class="about-info-card">
+          <div class="label">Tempat, Tanggal Lahir</div>
+          <div class="value">Bekasi, 13 Nov 2006</div>
         </div>
-        <span class="edu-tag">SMA · Lulus 2024</span>
+        <div class="about-info-card">
+          <div class="label">Kewarganegaraan</div>
+          <div class="value">Indonesia (WNI)</div>
+        </div>
+        <div class="about-info-card">
+          <div class="label">Alamat</div>
+          <div class="value">Kp. Pulo Rengas, Sindangjaya, Kab. Bekasi</div>
+        </div>
       </div>
     </div>
-    <div class="gpa-strip">
+  </section>
+
+  <!-- ═══ PENDIDIKAN ═══ -->
+  <section class="section fade-up" id="education">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Pendidikan</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-title">SDN Sindangjaya 01</div>
+        <div class="timeline-sub">Kabupaten Bekasi</div>
+        <div class="timeline-desc">2011 – 2018</div>
+        <span class="timeline-tag">SD</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-title">SMPN 1 Cabangbungin</div>
+        <div class="timeline-sub">Kabupaten Bekasi</div>
+        <div class="timeline-desc">2018 – 2021</div>
+        <span class="timeline-tag">SMP</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-title">SMKN 1 Cabangbungin</div>
+        <div class="timeline-sub">Jurusan IPA · Kabupaten Bekasi</div>
+        <div class="timeline-desc">2021 – 2024 · Lulus dengan predikat memuaskan</div>
+        <span class="timeline-tag">SMA · Lulus 2024</span>
+      </div>
+    </div>
+    <div class="gpa-banner">
       <div>
-        <div class="gpa-lbl">Rata-rata Nilai Kelulusan</div>
-        <div class="gpa-sub">SMKN 1 Cabangbungin &nbsp;·&nbsp; T.A. 2023/2024</div>
+        <div class="label">📊 Rata-rata Nilai Kelulusan</div>
+        <div class="sub">SMKN 1 Cabangbungin · T.A. 2023/2024</div>
       </div>
-      <div class="gpa-num">84,84</div>
+      <div class="value">84,84</div>
     </div>
-  </div>
+  </section>
 
-  <!-- PENGALAMAN KERJA -->
-  <div class="section">
-    <div class="sec-head">
-      <div class="sec-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-          <rect x="2" y="7" width="20" height="14" rx="2"/>
-          <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <span class="sec-title">Pengalaman Kerja</span>
-      <div class="sec-line"></div>
+  <!-- ═══ PENGALAMAN & ORGANISASI ═══ -->
+  <section class="section fade-up" id="experience">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Pengalaman &amp; Organisasi</h2>
+      <div class="section-line"></div>
     </div>
-    <div class="exp-card">
-      <div class="exp-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="12" r="9"/>
-          <path d="M12 8v4l3 3" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="exp-content">
-        <div class="exp-title">Fresh Graduate — Siap Kerja</div>
-        <div class="exp-org">2024 · Saat ini</div>
-        <div class="exp-desc">
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="icon">🎓</div>
+        <div class="title">Fresh Graduate — Siap Kerja</div>
+        <div class="org">2024 · Saat ini</div>
+        <div class="desc">
           Lulusan SMK dengan prestasi akademik baik. Memiliki kemampuan adaptasi tinggi,
-          siap belajar, dan berkomitmen untuk memberikan kontribusi positif di dunia kerja.
-          Terbuka untuk berbagai peluang di bidang administrasi, operasional, dan layanan.
+          siap belajar, dan berkomitmen memberikan kontribusi positif di dunia kerja.
+        </div>
+        <div class="tags">
+          <span>Adaptif</span>
+          <span>Disiplin</span>
+          <span>Komunikatif</span>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- KEMAMPUAN -->
-  <div class="section">
-    <div class="sec-head">
-      <div class="sec-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-          <path d="M9 11l3 3L22 4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <span class="sec-title">Kompetensi</span>
-      <div class="sec-line"></div>
-    </div>
-    <div class="skills-wrap">
-      <div>
-        <div class="skill-group-lbl">Soft Skills</div>
-        <div class="skill-list">
-          <div class="skill-item"><span class="sk-dot sk-soft"></span>Disiplin &amp; Bertanggung Jawab</div>
-          <div class="skill-item"><span class="sk-dot sk-soft"></span>Komunikasi Efektif</div>
-          <div class="skill-item"><span class="sk-dot sk-soft"></span>Kerja Sama Tim</div>
-          <div class="skill-item"><span class="sk-dot sk-soft"></span>Adaptif &amp; Cepat Belajar</div>
-          <div class="skill-item"><span class="sk-dot sk-soft"></span>Teliti &amp; Fokus pada Detail</div>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-lbl">Hard Skills</div>
-        <div class="skill-list">
-          <div class="skill-item"><span class="sk-dot sk-hard"></span>Ketelitian di Lini Produksi</div>
-          <div class="skill-item"><span class="sk-dot sk-hard"></span>Pencatatan &amp; Pengecekan Data</div>
-          <div class="skill-item"><span class="sk-dot sk-hard"></span>Bekerja Sesuai SOP</div>
-          <div class="skill-item"><span class="sk-dot sk-hard"></span>Pengoperasian Komputer Dasar</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PORTOFOLIO / PROYEK -->
-  <div class="section">
-    <div class="sec-head">
-      <div class="sec-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-          <rect x="2" y="3" width="20" height="18" rx="2" stroke-linejoin="round"/>
-          <path d="M2 7h20M9 11h6M9 15h4" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <span class="sec-title">Portofolio &amp; Proyek</span>
-      <div class="sec-line"></div>
-    </div>
-    <div class="project-grid">
-      <div class="project-item">
-        <div class="icon">📊</div>
-        <div class="name">Analisis Data</div>
-        <div class="desc">Pengolahan data sederhana</div>
-      </div>
-      <div class="project-item">
+      <div class="exp-card">
         <div class="icon">📋</div>
-        <div class="name">Administrasi</div>
-        <div class="desc">Pencatatan &amp; dokumentasi</div>
+        <div class="title">Koordinator Kebersihan Kelas</div>
+        <div class="org">SMKN 1 Cabangbungin · 2022–2024</div>
+        <div class="desc">
+          Mengkoordinasikan jadwal piket, memastikan kebersihan lingkungan kelas,
+          dan melaporkan kondisi sarana prasarana kepada wali kelas.
+        </div>
+        <div class="tags">
+          <span>Koordinasi</span>
+          <span>Tanggung Jawab</span>
+          <span>Laporan</span>
+        </div>
       </div>
-      <div class="project-item">
-        <div class="icon">🔧</div>
-        <div class="name">Operasional</div>
-        <div class="desc">Koordinasi &amp; pelaksanaan</div>
+      <div class="exp-card">
+        <div class="icon">📚</div>
+        <div class="title">Anggota Kelompok Belajar</div>
+        <div class="org">SMKN 1 Cabangbungin · 2022–2024</div>
+        <div class="desc">
+          Aktif dalam kelompok belajar mata pelajaran IPA, membantu teman-teman
+          memahami materi, dan menyusun rangkuman pelajaran.
+        </div>
+        <div class="tags">
+          <span>Kolaborasi</span>
+          <span>Komunikasi</span>
+          <span>Pembelajaran</span>
+        </div>
       </div>
-      <div class="project-item">
-        <div class="icon">📝</div>
-        <div class="name">Laporan</div>
-        <div class="desc">Penyusunan laporan</div>
+      <div class="exp-card">
+        <div class="icon">🖥️</div>
+        <div class="title">Pengelola Arsip Kelas</div>
+        <div class="org">SMKN 1 Cabangbungin · 2021–2023</div>
+        <div class="desc">
+          Mengelola dan mengorganisir dokumen-dokumen kelas, membuat laporan
+          kehadiran, dan membantu administrasi wali kelas.
+        </div>
+        <div class="tags">
+          <span>Administrasi</span>
+          <span>Teliti</span>
+          <span>Dokumentasi</span>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-name">Siti Amelia</div>
-    <div class="footer-divider"></div>
-    <div class="footer-sub">Fresh Graduate · Siap Berkontribusi · 2024</div>
-    <div class="footer-contact">
-      📞 0857-7059-2217 &nbsp;·&nbsp; ✉️ sitiamelia@email.com
+  <!-- ═══ KOMPETENSI ═══ -->
+  <section class="section fade-up" id="skills">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Kompetensi</h2>
+      <div class="section-line"></div>
     </div>
-  </div>
+    <div class="skills-container">
+      <div>
+        <div class="skill-group">
+          <h4>Soft Skills</h4>
+          <div class="skill-bar">
+            <div class="label">Disiplin &amp; Tanggung Jawab <span>95%</span></div>
+            <div class="track"><div class="fill animated" style="--w:95%;"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="label">Komunikasi Efektif <span>85%</span></div>
+            <div class="track"><div class="fill animated" style="--w:85%;"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="label">Kerja Sama Tim <span>88%</span></div>
+            <div class="track"><div class="fill animated" style="--w:88%;"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="label">Adaptif &amp; Cepat Belajar <span>90%</span></div>
+            <div class="track"><div class="fill animated" style="--w:90%;"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="label">Teliti &amp; Fokus Detail <span>85%</span></div>
+            <div class="track"><div class="fill animated" style="--w:85%;"></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group">
+          <h4>Hard Skills</h4>
+          <div class="skill-bar">
+            <div class="label">Ketelitian di Lini Produksi <span>80%</span></div>
+            <div class="track"><div class="fill animated" style="--w:80%;"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="label">Pencatatan &amp; Pengecekan Data <span>85%</span></div>
+            <div class="track"><div class="fill animated" style="--w:85%;"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="label">Bekerja Sesuai SOP <span>90%</span></div>
+            <div class="track"><div class="fill animated" style="--w:90%;"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="label">Pengoperasian Komputer Dasar <span>75%</span></div>
+            <div class="track"><div class="fill animated" style="--w:75%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BAHASA ═══ -->
+  <section class="section fade-up">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">Bahasa</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="lang-grid">
+      <div class="lang-item">
+        <div class="name">Bahasa Indonesia</div>
+        <div class="level">Aktif · Bahasa Ibu</div>
+        <div class="dot active"></div>
+      </div>
+      <div class="lang-item">
+        <div class="name">Bahasa Inggris</div>
+        <div class="level">Dasar · Pasif</div>
+        <div class="dot basic"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PORTOFOLIO ═══ -->
+  <section class="section fade-up" id="portfolio">
+    <div class="section-header">
+      <span class="section-number">06</span>
+      <h2 class="section-title">Portofolio &amp; Proyek</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="icon">📊</div>
+        <div class="name">Laporan Nilai Kelulusan</div>
+        <div class="desc">Menyusun rekapitulasi nilai</div>
+      </div>
+      <div class="portfolio-item">
+        <div class="icon">📁</div>
+        <div class="name">Arsip Dokumen Kelas</div>
+        <div class="desc">Pengelolaan &amp; pengarsipan</div>
+      </div>
+      <div class="portfolio-item">
+        <div class="icon">📝</div>
+        <div class="name">Laporan Praktikum IPA</div>
+        <div class="desc">Dokumentasi hasil praktikum</div>
+      </div>
+      <div class="portfolio-item">
+        <div class="icon">📋</div>
+        <div class="name">Jadwal Piket Kelas</div>
+        <div class="desc">Penyusunan &amp; koordinasi</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REFERENSI ═══ -->
+  <section class="section fade-up">
+    <div class="section-header">
+      <span class="section-number">07</span>
+      <h2 class="section-title">Referensi</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-item">
+        <div class="name">Ibu Dra. Siti Rahayu, M.Pd.</div>
+        <div class="role">Wali Kelas · SMKN 1 Cabangbungin</div>
+        <div class="contact">📞 0857-1234-5678</div>
+      </div>
+      <div class="ref-item">
+        <div class="name">Bapak Ahmad Fauzi, S.Pd.</div>
+        <div class="role">Guru Matematika · SMKN 1 Cabangbungin</div>
+        <div class="contact">📞 0857-8765-4321</div>
+      </div>
+    </div>
+    <p class="text-muted mt-2" style="font-size:0.85rem;">
+      ✦ Referensi tambahan tersedia jika dibutuhkan
+    </p>
+  </section>
 
 </div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-brand">
+      <div class="name">Siti<span>Amelia</span></div>
+      <p>Fresh Graduate dengan dedikasi tinggi, siap berkontribusi dan berkembang bersama perusahaan Anda.</p>
+      <div class="footer-social mt-2">
+        <a href="#" title="LinkedIn">🔗</a>
+        <a href="#" title="WhatsApp">💬</a>
+        <a href="mailto:sitiamelia@email.com" title="Email">✉️</a>
+        <a href="tel:085770592217" title="Telepon">📞</a>
+      </div>
+    </div>
+    <div>
+      <h4>Navigasi</h4>
+      <ul class="footer-links">
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#education">Pendidikan</a></li>
+        <li><a href="#experience">Pengalaman</a></li>
+        <li><a href="#skills">Kompetensi</a></li>
+        <li><a href="#portfolio">Portofolio</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <ul class="footer-links">
+        <li><a href="tel:085770592217">📞 0857-7059-2217</a></li>
+        <li><a href="mailto:sitiamelia@email.com">✉️ sitiamelia@email.com</a></li>
+        <li style="color:rgba(255,255,255,0.4);font-size:0.85rem;">📍 Kp. Pulo Rengas, Sindangjaya</li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Siti Amelia · Portofolio Profesional</p>
+      <p style="margin-top:4px;font-size:0.7rem;color:rgba(255,255,255,0.2);">
+        Diperbarui: Agustus 2026
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ═══ HAMBURGER MENU ═══
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // ═══ SCROLL ANIMATION ═══
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ═══ SKILL BAR ANIMATION ═══
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.fill').forEach(el => {
+          el.style.width = el.style.getPropertyValue('--w');
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.skill-group').forEach(el => skillObserver.observe(el));
+
+  // ═══ NAVBAR SCROLL EFFECT ═══
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.style.background = 'rgba(255,255,255,0.95)';
+      navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)';
+    } else {
+      navbar.style.background = 'rgba(255,255,255,0.85)';
+      navbar.style.boxShadow = 'none';
+    }
+  });
+
+  // ═══ SMOOTH SCROLL ═══
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('navLinks').classList.remove('open');
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
