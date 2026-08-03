@@ -3,30 +3,32 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Siti Amelia — Portofolio Profesional</title>
+  <title>Siti Amelia — Makeup Artist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --primary: #0F1A2E;
-      --primary-light: #1A2D4A;
-      --primary-dark: #0A111F;
-      --secondary: #2C4A6E;
+      --primary: #1A1A2E;
+      --primary-light: #2D2D44;
+      --primary-dark: #0F0F1A;
+      --secondary: #4A2C3A;
       --accent: #D4A373;
       --accent-light: #F0E6D3;
-      --accent-glow: rgba(212, 163, 115, 0.2);
-      --bg: #F5F6F8;
+      --rose: #C98B8B;
+      --rose-light: #F5E8E8;
+      --bg: #FAF7F5;
       --white: #FFFFFF;
-      --text: #141824;
-      --text-light: #4A5068;
-      --text-muted: #7A8098;
-      --border: rgba(15, 26, 46, 0.08);
-      --shadow-sm: 0 2px 8px rgba(15, 26, 46, 0.06);
-      --shadow-md: 0 8px 32px rgba(15, 26, 46, 0.08);
-      --shadow-lg: 0 20px 60px rgba(15, 26, 46, 0.12);
+      --text: #1A1A2E;
+      --text-light: #4A4A5E;
+      --text-muted: #8A8A9E;
+      --border: rgba(26, 26, 46, 0.06);
+      --shadow-sm: 0 2px 8px rgba(26, 26, 46, 0.05);
+      --shadow-md: 0 8px 32px rgba(26, 26, 46, 0.07);
+      --shadow-lg: 0 20px 60px rgba(26, 26, 46, 0.10);
       --radius: 16px;
+      --radius-lg: 24px;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -58,7 +60,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
@@ -140,33 +142,29 @@
       padding: 8rem 0 4rem;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+      background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 50%, var(--secondary) 100%);
       border-radius: 0 0 40px 40px;
       margin: 0 -2rem;
     }
 
     .hero::before {
-      content: '';
+      content: '✦';
       position: absolute;
-      top: -40%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
+      top: 10%;
+      right: 15%;
+      font-size: 8rem;
+      color: rgba(212, 163, 115, 0.06);
+      font-family: 'Playfair Display', serif;
     }
 
     .hero::after {
-      content: '';
+      content: '✦';
       position: absolute;
-      bottom: -30%;
-      left: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(212, 163, 115, 0.08) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
+      bottom: 15%;
+      left: 10%;
+      font-size: 6rem;
+      color: rgba(212, 163, 115, 0.04);
+      font-family: 'Playfair Display', serif;
     }
 
     .hero .container {
@@ -188,10 +186,10 @@
       border: 1px solid rgba(212, 163, 115, 0.3);
       padding: 4px 16px;
       border-radius: 30px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 500;
       color: var(--accent);
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
@@ -201,7 +199,7 @@
       font-size: 3.2rem;
       font-weight: 700;
       line-height: 1.1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
     }
     .hero-name span { color: var(--accent); }
 
@@ -209,7 +207,7 @@
       font-size: 1.1rem;
       color: rgba(255,255,255,0.7);
       font-weight: 400;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .hero-desc {
@@ -286,7 +284,7 @@
       color: var(--accent);
     }
     .stat-label {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: rgba(255,255,255,0.5);
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -302,7 +300,7 @@
       width: 280px;
       height: 280px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+      background: linear-gradient(135deg, var(--secondary), var(--primary-light));
       border: 3px solid rgba(212, 163, 115, 0.3);
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       display: flex;
@@ -396,6 +394,13 @@
       flex: 1;
       height: 1px;
       background: linear-gradient(to right, var(--border), transparent);
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: -1.5rem;
+      margin-bottom: 2rem;
     }
 
     /* ═══ ABOUT ═══ */
@@ -520,123 +525,93 @@
       letter-spacing: 0.3px;
     }
 
-    .gpa-banner {
-      margin-top: 1.5rem;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.2rem 1.8rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-    .gpa-banner:hover { box-shadow: var(--shadow-md); }
-    .gpa-banner .label { font-size: 0.85rem; color: var(--text-light); }
-    .gpa-banner .sub { font-size: 0.75rem; color: var(--text-muted); }
-    .gpa-banner .value {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    /* ═══ EXPERIENCE ═══ */
-    .exp-grid {
+    /* ═══ MAKEUP SKILLS ═══ */
+    .makeup-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.2rem;
     }
 
-    .exp-card {
+    .makeup-item {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.5rem;
+      padding: 1.2rem;
+      text-align: center;
       transition: var(--transition);
       box-shadow: var(--shadow-sm);
     }
-    .exp-card:hover {
+    .makeup-item:hover {
       transform: translateY(-6px);
       box-shadow: var(--shadow-lg);
       border-color: var(--accent);
     }
-
-    .exp-card .icon {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+    .makeup-item .icon {
+      font-size: 2.2rem;
+      margin-bottom: 6px;
+      display: block;
     }
-    .exp-card .title { font-weight: 600; font-size: 0.95rem; color: var(--primary); }
-    .exp-card .org { font-size: 0.8rem; color: var(--secondary); font-weight: 500; }
-    .exp-card .desc {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      margin-top: 8px;
-      line-height: 1.7;
-    }
-    .exp-card .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-    }
-    .exp-card .tags span {
-      background: var(--bg);
-      font-size: 0.7rem;
-      padding: 2px 10px;
-      border-radius: 20px;
-      color: var(--text-muted);
-    }
-
-    /* ═══ SKILLS ═══ */
-    .skills-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .skill-group h4 {
-      font-size: 0.7rem;
+    .makeup-item .name {
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
+      font-size: 0.85rem;
+      color: var(--primary);
+    }
+    .makeup-item .desc {
+      font-size: 0.75rem;
       color: var(--text-muted);
-      margin-bottom: 1rem;
+      margin-top: 2px;
     }
 
-    .skill-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    /* ═══ PORTFOLIO GALLERY ═══ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.2rem;
     }
 
-    .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .gallery-item {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 0.85rem;
-      color: var(--text);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.2rem;
+      text-align: center;
       transition: var(--transition);
       box-shadow: var(--shadow-sm);
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
     }
-    .skill-item:hover {
-      border-color: var(--accent);
-      transform: translateX(4px);
-      box-shadow: var(--shadow-md);
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--rose));
+      transform: scaleX(0);
+      transition: var(--transition);
     }
-    .skill-item .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
+    .gallery-item:hover::before { transform: scaleX(1); }
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
     }
-    .skill-item .dot.soft { background: var(--secondary); }
-    .skill-item .dot.hard { background: var(--accent); }
+    .gallery-item .icon { font-size: 2.8rem; margin-bottom: 8px; }
+    .gallery-item .label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--primary);
+    }
+    .gallery-item .sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
 
     /* ═══ LANGUAGES ═══ */
     .lang-grid {
@@ -674,45 +649,6 @@
     }
     .lang-item .dot.active { background: #4CAF50; }
     .lang-item .dot.basic { background: #FF5722; }
-
-    /* ═══ PORTFOLIO ═══ */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .portfolio-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem 1.2rem;
-      text-align: center;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
-    }
-    .portfolio-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--secondary));
-      transform: scaleX(0);
-      transition: var(--transition);
-    }
-    .portfolio-item:hover::before { transform: scaleX(1); }
-    .portfolio-item:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .portfolio-item .icon { font-size: 2.2rem; margin-bottom: 6px; }
-    .portfolio-item .name { font-weight: 600; font-size: 0.9rem; color: var(--primary); }
-    .portfolio-item .desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
 
     /* ═══ FOOTER ═══ */
     .footer {
@@ -807,8 +743,6 @@
       .hero-contact-floating { display: none; }
       .about-grid { grid-template-columns: 1fr; }
       .about-info-cards { grid-template-columns: 1fr 1fr; }
-      .exp-grid { grid-template-columns: 1fr; }
-      .skills-container { grid-template-columns: 1fr; }
       .footer .container { grid-template-columns: 1fr; text-align: center; }
       .footer-brand p { margin: 6px auto 0; }
       .footer-social { justify-content: center; }
@@ -816,6 +750,7 @@
       .nav-links.open { display: flex; flex-direction: column; gap: 1rem; padding: 1rem 0; }
       .hamburger { display: flex; }
       .navbar .container { flex-wrap: wrap; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 480px) {
@@ -823,11 +758,11 @@
       .hero-name { font-size: 2.2rem; }
       .hero-avatar { width: 150px; height: 150px; font-size: 2.8rem; }
       .about-info-cards { grid-template-columns: 1fr; }
-      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
       .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
       .stat-item:last-child { grid-column: span 2; }
-      .gpa-banner { flex-direction: column; text-align: center; gap: 8px; }
       .section-title { font-size: 1.2rem; }
+      .makeup-grid { grid-template-columns: 1fr 1fr; }
     }
 
     .fade-up {
@@ -856,8 +791,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">Tentang</a></li>
       <li><a href="#education">Pendidikan</a></li>
-      <li><a href="#experience">Pengalaman</a></li>
-      <li><a href="#skills">Kompetensi</a></li>
+      <li><a href="#skills">Keahlian MUA</a></li>
       <li><a href="#portfolio">Portofolio</a></li>
       <li><a href="#contact" class="nav-cta">Kontak</a></li>
     </ul>
@@ -871,29 +805,30 @@
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content">
-      <span class="hero-badge">✦ Fresh Graduate 2024</span>
+      <span class="hero-badge">✦ Makeup Artist in Progress</span>
       <h1 class="hero-name">Siti <span>Amelia</span></h1>
-      <p class="hero-title">Lulusan SMK · Siap Berkontribusi &amp; Berkembang</p>
+      <p class="hero-title">Makeup Artist · Kabupaten Bekasi</p>
       <p class="hero-desc">
-        Lulusan SMKN 1 Cabangbungin dengan nilai rata-rata <strong style="color:var(--accent);">84,84</strong>.
-        Memiliki dedikasi tinggi, disiplin, dan siap memberikan kontribusi terbaik di dunia kerja profesional.
+        Sedang menempuh pendidikan di <strong style="color:var(--accent);">kelas Makeup Artist</strong>
+        dan akan segera memulai karier profesional sebagai MUA di Kabupaten Bekasi.
+        Passionate dalam menciptakan tampilan yang percaya diri dan memukau.
       </p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">📩 Hubungi Saya</a>
+        <a href="#contact" class="btn-primary">📩 Pesan Jasa MUA</a>
         <a href="#portfolio" class="btn-outline">📂 Lihat Portofolio</a>
       </div>
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-number">84,84</div>
-          <div class="stat-label">Nilai Rata-rata</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Jenjang Pendidikan</div>
+          <div class="stat-number">✦</div>
+          <div class="stat-label">Kelas MUA</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">2024</div>
           <div class="stat-label">Tahun Lulus</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Bekasi</div>
+          <div class="stat-label">Area Layanan</div>
         </div>
       </div>
     </div>
@@ -920,33 +855,35 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          Saya adalah <span class="about-highlight">lulusan SMKN 1 Cabangbungin</span> jurusan IPA tahun 2024
-          dengan nilai rata-rata <strong>84,84</strong>. Selama masa sekolah, saya dikenal sebagai pribadi yang
-          <strong>disiplin, bertanggung jawab, dan memiliki integritas tinggi</strong> dalam setiap tugas yang diberikan.
+          Saya adalah <span class="about-highlight">calon Makeup Artist</span> yang sedang menyelesaikan
+          pendidikan di kelas MUA. Saya memiliki passion besar dalam dunia kecantikan dan seni merias wajah.
         </p>
         <p>
-          Saya memiliki kemampuan <strong>beradaptasi dengan cepat</strong> di lingkungan baru, mampu bekerja
-          <strong>secara mandiri maupun dalam tim</strong>, serta selalu bersemangat untuk <strong>terus belajar
-          dan mengembangkan diri</strong>. Dengan motivasi kuat dan dedikasi penuh, saya siap memberikan
-          kontribusi terbaik bagi perusahaan tempat saya berkarya.
+          Bagi saya, makeup adalah <strong>seni untuk meningkatkan rasa percaya diri</strong> seseorang.
+          Saya berkomitmen untuk memberikan layanan terbaik dengan teknik yang tepat, produk berkualitas,
+          dan sentuhan personal untuk setiap klien.
+        </p>
+        <p>
+          <strong>Layanan yang saya tawarkan:</strong>
+          Makeup pengantin, makeup pesta, makeup sehari-hari, dan konsultasi riasan sesuai kebutuhan klien.
         </p>
       </div>
       <div class="about-info-cards">
         <div class="about-info-card">
-          <div class="label">Nama Lengkap</div>
+          <div class="label">Nama</div>
           <div class="value">Siti Amelia</div>
         </div>
         <div class="about-info-card">
-          <div class="label">Tempat, Tanggal Lahir</div>
-          <div class="value">Bekasi, 13 Nov 2006</div>
+          <div class="label">Profesi</div>
+          <div class="value">Makeup Artist</div>
         </div>
         <div class="about-info-card">
-          <div class="label">Kewarganegaraan</div>
-          <div class="value">Indonesia (WNI)</div>
+          <div class="label">Status</div>
+          <div class="value">Fresh Graduate MUA</div>
         </div>
         <div class="about-info-card">
-          <div class="label">Alamat</div>
-          <div class="value">Kp. Pulo Rengas, Sindangjaya, Kab. Bekasi</div>
+          <div class="label">Area Layanan</div>
+          <div class="value">Kabupaten Bekasi &amp; Sekitarnya</div>
         </div>
       </div>
     </div>
@@ -961,10 +898,16 @@
     </div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-title">SDN Sindangjaya 01</div>
-        <div class="timeline-sub">Kabupaten Bekasi</div>
-        <div class="timeline-desc">2011 – 2018</div>
-        <span class="timeline-tag">SD</span>
+        <div class="timeline-title">💄 Kelas Makeup Artist</div>
+        <div class="timeline-sub">Sedang Berlangsung · Kabupaten Bekasi</div>
+        <div class="timeline-desc">Mempelajari teknik riasan wajah, color theory, skin prep, hingga makeup pengantin</div>
+        <span class="timeline-tag">MUA · 2024</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-title">SMKN 1 Cabangbungin</div>
+        <div class="timeline-sub">Jurusan IPA · Kabupaten Bekasi</div>
+        <div class="timeline-desc">2021 – 2024 · Lulus dengan nilai rata-rata 84,84</div>
+        <span class="timeline-tag">SMA · Lulus 2024</span>
       </div>
       <div class="timeline-item">
         <div class="timeline-title">SMPN 1 Cabangbungin</div>
@@ -973,121 +916,93 @@
         <span class="timeline-tag">SMP</span>
       </div>
       <div class="timeline-item">
-        <div class="timeline-title">SMKN 1 Cabangbungin</div>
-        <div class="timeline-sub">Jurusan IPA · Kabupaten Bekasi</div>
-        <div class="timeline-desc">2021 – 2024 · Lulus dengan predikat memuaskan</div>
-        <span class="timeline-tag">SMA · Lulus 2024</span>
-      </div>
-    </div>
-    <div class="gpa-banner">
-      <div>
-        <div class="label">📊 Rata-rata Nilai Kelulusan</div>
-        <div class="sub">SMKN 1 Cabangbungin · T.A. 2023/2024</div>
-      </div>
-      <div class="value">84,84</div>
-    </div>
-  </section>
-
-  <!-- ═══ PENGALAMAN & ORGANISASI ═══ -->
-  <section class="section fade-up" id="experience">
-    <div class="section-header">
-      <span class="section-number">03</span>
-      <h2 class="section-title">Pengalaman &amp; Organisasi</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="exp-grid">
-      <div class="exp-card">
-        <div class="icon">🎓</div>
-        <div class="title">Fresh Graduate — Siap Kerja</div>
-        <div class="org">2024 · Saat ini</div>
-        <div class="desc">
-          Lulusan SMK dengan prestasi akademik baik. Memiliki kemampuan adaptasi tinggi,
-          siap belajar, dan berkomitmen memberikan kontribusi positif di dunia kerja.
-        </div>
-        <div class="tags">
-          <span>Adaptif</span>
-          <span>Disiplin</span>
-          <span>Komunikatif</span>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="icon">📋</div>
-        <div class="title">Koordinator Kebersihan Kelas</div>
-        <div class="org">SMKN 1 Cabangbungin · 2022–2024</div>
-        <div class="desc">
-          Mengkoordinasikan jadwal piket, memastikan kebersihan lingkungan kelas,
-          dan melaporkan kondisi sarana prasarana kepada wali kelas.
-        </div>
-        <div class="tags">
-          <span>Koordinasi</span>
-          <span>Tanggung Jawab</span>
-          <span>Laporan</span>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="icon">📚</div>
-        <div class="title">Anggota Kelompok Belajar</div>
-        <div class="org">SMKN 1 Cabangbungin · 2022–2024</div>
-        <div class="desc">
-          Aktif dalam kelompok belajar mata pelajaran IPA, membantu teman-teman
-          memahami materi, dan menyusun rangkuman pelajaran.
-        </div>
-        <div class="tags">
-          <span>Kolaborasi</span>
-          <span>Komunikasi</span>
-          <span>Pembelajaran</span>
-        </div>
-      </div>
-      <div class="exp-card">
-        <div class="icon">🖥️</div>
-        <div class="title">Pengelola Arsip Kelas</div>
-        <div class="org">SMKN 1 Cabangbungin · 2021–2023</div>
-        <div class="desc">
-          Mengelola dan mengorganisir dokumen-dokumen kelas, membuat laporan
-          kehadiran, dan membantu administrasi wali kelas.
-        </div>
-        <div class="tags">
-          <span>Administrasi</span>
-          <span>Teliti</span>
-          <span>Dokumentasi</span>
-        </div>
+        <div class="timeline-title">SDN Sindangjaya 01</div>
+        <div class="timeline-sub">Kabupaten Bekasi</div>
+        <div class="timeline-desc">2011 – 2018</div>
+        <span class="timeline-tag">SD</span>
       </div>
     </div>
   </section>
 
-  <!-- ═══ KOMPETENSI ═══ -->
+  <!-- ═══ KEAHLIAN MUA ═══ -->
   <section class="section fade-up" id="skills">
     <div class="section-header">
-      <span class="section-number">04</span>
-      <h2 class="section-title">Kompetensi</h2>
+      <span class="section-number">03</span>
+      <h2 class="section-title">Keahlian MUA</h2>
       <div class="section-line"></div>
     </div>
-
-    <div class="skills-container">
-      <div>
-        <div class="skill-group">
-          <h4>Soft Skills</h4>
-          <div class="skill-list">
-            <div class="skill-item"><span class="dot soft"></span>Disiplin &amp; Bertanggung Jawab</div>
-            <div class="skill-item"><span class="dot soft"></span>Kerja Sama Tim</div>
-            <div class="skill-item"><span class="dot soft"></span>Adaptif &amp; Cepat Belajar</div>
-            <div class="skill-item"><span class="dot soft"></span>Komunikasi Efektif</div>
-            <div class="skill-item"><span class="dot soft"></span>Teliti &amp; Fokus pada Detail</div>
-          </div>
-        </div>
+    <p class="section-sub">
+      Teknik dan layanan yang saya kuasai selama mengikuti kelas Makeup Artist
+    </p>
+    <div class="makeup-grid">
+      <div class="makeup-item">
+        <span class="icon">👰</span>
+        <div class="name">Makeup Pengantin</div>
+        <div class="desc">Riasan pengantin modern &amp; klasik</div>
       </div>
-      <div>
-        <div class="skill-group">
-          <h4>Hard Skills</h4>
-          <div class="skill-list">
-            <div class="skill-item"><span class="dot hard"></span>Bekerja Sesuai SOP</div>
-            <div class="skill-item"><span class="dot hard"></span>Pencatatan &amp; Pengecekan Data</div>
-            <div class="skill-item"><span class="dot hard"></span>Ketelitian di Lini Produksi</div>
-            <div class="skill-item"><span class="dot hard"></span>Pengoperasian Komputer Dasar</div>
-          </div>
-        </div>
+      <div class="makeup-item">
+        <span class="icon">🎭</span>
+        <div class="name">Makeup Pesta</div>
+        <div class="desc">Tampilan glamor untuk acara spesial</div>
+      </div>
+      <div class="makeup-item">
+        <span class="icon">🌿</span>
+        <div class="name">Makeup Sehari-hari</div>
+        <div class="desc">Natural look untuk aktivitas harian</div>
+      </div>
+      <div class="makeup-item">
+        <span class="icon">🎨</span>
+        <div class="name">Color Theory</div>
+        <div class="desc">Pemahaman warna untuk hasil maksimal</div>
+      </div>
+      <div class="makeup-item">
+        <span class="icon">🧖</span>
+        <div class="name">Skin Prep</div>
+        <div class="desc">Perawatan kulit sebelum riasan</div>
+      </div>
+      <div class="makeup-item">
+        <span class="icon">📋</span>
+        <div class="name">Konsultasi Riasan</div>
+        <div class="desc">Rekomendasi sesuai kebutuhan klien</div>
       </div>
     </div>
+  </section>
+
+  <!-- ═══ PORTOFOLIO ═══ -->
+  <section class="section fade-up" id="portfolio">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Portofolio</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="section-sub">
+      Karya dan proyek selama mengikuti kelas MUA — akan terus diperbarui
+    </p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="icon">👰</div>
+        <div class="label">Makeup Pengantin</div>
+        <div class="sub">Tampilan elegan &amp; tahan lama</div>
+      </div>
+      <div class="gallery-item">
+        <div class="icon">💄</div>
+        <div class="label">Makeup Glam</div>
+        <div class="sub">Untuk acara formal &amp; pesta</div>
+      </div>
+      <div class="gallery-item">
+        <div class="icon">🌸</div>
+        <div class="label">Natural Look</div>
+        <div class="sub">Fresh &amp; effortless daily makeup</div>
+      </div>
+      <div class="gallery-item">
+        <div class="icon">📸</div>
+        <div class="label">Portofolio Klien</div>
+        <div class="sub">Dokumentasi hasil riasan</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:1.5rem;">
+      ✦ Portofolio foto akan segera diupdate setelah sesi pemotretan hasil karya
+    </p>
   </section>
 
   <!-- ═══ BAHASA ═══ -->
@@ -1111,37 +1026,6 @@
     </div>
   </section>
 
-  <!-- ═══ PORTOFOLIO ═══ -->
-  <section class="section fade-up" id="portfolio">
-    <div class="section-header">
-      <span class="section-number">06</span>
-      <h2 class="section-title">Portofolio &amp; Proyek</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <div class="icon">📊</div>
-        <div class="name">Laporan Nilai Kelulusan</div>
-        <div class="desc">Menyusun rekapitulasi nilai</div>
-      </div>
-      <div class="portfolio-item">
-        <div class="icon">📁</div>
-        <div class="name">Arsip Dokumen Kelas</div>
-        <div class="desc">Pengelolaan &amp; pengarsipan</div>
-      </div>
-      <div class="portfolio-item">
-        <div class="icon">📝</div>
-        <div class="name">Laporan Praktikum IPA</div>
-        <div class="desc">Dokumentasi hasil praktikum</div>
-      </div>
-      <div class="portfolio-item">
-        <div class="icon">📋</div>
-        <div class="name">Jadwal Piket Kelas</div>
-        <div class="desc">Penyusunan &amp; koordinasi</div>
-      </div>
-    </div>
-  </section>
-
 </div>
 
 <!-- ═══ FOOTER ═══ -->
@@ -1149,9 +1033,9 @@
   <div class="container">
     <div class="footer-brand">
       <div class="name">Siti<span>Amelia</span></div>
-      <p>Fresh Graduate dengan dedikasi tinggi, siap berkontribusi dan berkembang bersama perusahaan Anda.</p>
+      <p>Makeup Artist berbasis di Kabupaten Bekasi. Siap membantu Anda tampil percaya diri untuk setiap momen spesial.</p>
       <div class="footer-social mt-2">
-        <a href="#" title="LinkedIn">🔗</a>
+        <a href="#" title="Instagram">📷</a>
         <a href="#" title="WhatsApp">💬</a>
         <a href="mailto:sitiamelia@email.com" title="Email">✉️</a>
         <a href="tel:085770592217" title="Telepon">📞</a>
@@ -1162,21 +1046,21 @@
       <ul class="footer-links">
         <li><a href="#about">Tentang</a></li>
         <li><a href="#education">Pendidikan</a></li>
-        <li><a href="#experience">Pengalaman</a></li>
-        <li><a href="#skills">Kompetensi</a></li>
+        <li><a href="#skills">Keahlian</a></li>
         <li><a href="#portfolio">Portofolio</a></li>
       </ul>
     </div>
     <div>
-      <h4>Kontak</h4>
+      <h4>Kontak &amp; Booking</h4>
       <ul class="footer-links">
         <li><a href="tel:085770592217">📞 0857-7059-2217</a></li>
         <li><a href="mailto:sitiamelia@email.com">✉️ sitiamelia@email.com</a></li>
-        <li style="color:rgba(255,255,255,0.4);font-size:0.85rem;">📍 Kp. Pulo Rengas, Sindangjaya</li>
+        <li style="color:rgba(255,255,255,0.4);font-size:0.85rem;">📍 Kabupaten Bekasi</li>
+        <li style="color:rgba(255,255,255,0.4);font-size:0.85rem;">💄 Open Booking</li>
       </ul>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Siti Amelia · Portofolio Profesional</p>
+      <p>© 2026 Siti Amelia · Makeup Artist</p>
       <p style="margin-top:4px;font-size:0.7rem;color:rgba(255,255,255,0.2);">
         Diperbarui: Agustus 2026
       </p>
@@ -1205,7 +1089,7 @@
       navbar.style.background = 'rgba(255,255,255,0.95)';
       navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)';
     } else {
-      navbar.style.background = 'rgba(255,255,255,0.85)';
+      navbar.style.background = 'rgba(255,255,255,0.92)';
       navbar.style.boxShadow = 'none';
     }
   });
