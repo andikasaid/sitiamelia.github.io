@@ -1,1181 +1,1071 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Siti Amelia — Makeup Artist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siti Amelia MUA - Makeup Artist Bekasi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* --- RESET & VARIABEL --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-      --primary: #1A1A2E;
-      --primary-light: #2D2D44;
-      --primary-dark: #0F0F1A;
-      --secondary: #4A2C3A;
-      --accent: #D4A373;
-      --accent-light: #F0E6D3;
-      --gold: #C9A96E;
-      --gold-light: #F5EDE0;
-      --bg: #FAF7F5;
-      --white: #FFFFFF;
-      --text: #1A1A2E;
-      --text-light: #4A4A5E;
-      --text-muted: #8A8A9E;
-      --border: rgba(26, 26, 46, 0.06);
-      --shadow-sm: 0 2px 8px rgba(26, 26, 46, 0.05);
-      --shadow-md: 0 8px 32px rgba(26, 26, 46, 0.07);
-      --shadow-lg: 0 20px 60px rgba(26, 26, 46, 0.10);
-      --shadow-xl: 0 40px 80px rgba(26, 26, 46, 0.14);
-      --radius: 16px;
-      --radius-lg: 24px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+        :root {
+            --primary: #1A1A2E;
+            --primary-light: #2D2D44;
+            --secondary: #4A2C3A;
+            --accent: #C9A96E;
+            --accent-light: #F5EDE0;
+            --bg: #FAF7F5;
+            --white: #FFFFFF;
+            --text: #1A1A2E;
+            --text-light: #4A4A5E;
+            --text-muted: #8A8A9E;
+            --border: rgba(26, 26, 46, 0.06);
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.10);
+            --radius: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s ease;
+        }
 
-    html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
 
-    .container {
-      max-width: 1024px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+        /* --- TYPOGRAPHY --- */
+        h1,
+        h2,
+        h3,
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
 
-    /* ═══ NAVBAR ═══ */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 0.8rem 0;
-      transition: var(--transition);
-    }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
 
-    .navbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
 
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--primary);
-      letter-spacing: -0.5px;
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--accent); }
+        /* --- BUTTONS --- */
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(201, 169, 110, 0.4);
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-    .nav-links a {
-      color: var(--text-light);
-      text-decoration: none;
-      transition: var(--transition);
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: var(--transition);
-    }
-    .nav-links a:hover { color: var(--primary); }
-    .nav-links a:hover::after { width: 100%; }
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--text);
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+            transform: translateY(-3px);
+        }
 
-    .nav-cta {
-      background: var(--primary);
-      color: var(--white) !important;
-      padding: 6px 18px;
-      border-radius: 30px;
-      transition: var(--transition);
-    }
-    .nav-cta:hover { background: var(--secondary) !important; transform: translateY(-2px); }
-    .nav-cta::after { display: none !important; }
+        .btn-wa {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        .btn-wa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+        }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .hamburger span {
-      width: 24px;
-      height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: var(--transition);
-    }
+        /* --- NAVBAR --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.8rem 0;
+            transition: var(--transition);
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .nav-logo span {
+            color: var(--accent);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 6px 18px;
+            border-radius: 30px;
+        }
+        .nav-cta:hover {
+            background: var(--secondary) !important;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
 
-    /* ═══ HERO ═══ */
-    .hero {
-      padding: 8rem 0 4rem;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 50%, var(--secondary) 100%);
-      border-radius: 0 0 40px 40px;
-      margin: 0 -2rem;
-    }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
 
-    .hero::before {
-      content: '✦';
-      position: absolute;
-      top: 10%;
-      right: 15%;
-      font-size: 8rem;
-      color: rgba(212, 163, 115, 0.06);
-      font-family: 'Playfair Display', serif;
-    }
+        /* --- HERO --- */
+        .hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 60%, var(--secondary) 100%);
+            margin: 0 -2rem;
+            border-radius: 0 0 40px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '✦';
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            font-size: 10rem;
+            color: rgba(201, 169, 110, 0.05);
+            font-family: 'Playfair Display', serif;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content {
+            color: var(--white);
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 169, 110, 0.2);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+        .hero h1 span {
+            color: var(--accent);
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+        .hero .desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 480px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .hero-stats .stat {
+            text-align: center;
+        }
+        .hero-stats .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .hero-stats .label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .hero-avatar {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary-light));
+            border: 3px solid rgba(201, 169, 110, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0 auto;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
 
-    .hero .container {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
+        /* --- SECTION UMUM --- */
+        .section {
+            padding: 4rem 0;
+        }
+        .section-light {
+            background: var(--white);
+            margin: 0 -2rem;
+            padding: 4rem 2rem;
+        }
 
-    .hero-content {
-      color: var(--white);
-    }
+        /* --- MENU LAYANAN (mirip devymua) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+        }
+        .service-card .icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+        .service-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        .service-card .price {
+            display: inline-block;
+            background: var(--accent-light);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin: 8px 0;
+        }
+        .service-card .look-tag {
+            display: inline-block;
+            background: var(--bg);
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 20px;
+            margin: 2px 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .service-card .desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 8px 0;
+        }
+        .service-card .features {
+            list-style: none;
+            text-align: left;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 12px;
+        }
+        .service-card .features li {
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .service-card .features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+        }
 
-    .hero-badge {
-      display: inline-block;
-      background: rgba(212, 163, 115, 0.2);
-      border: 1px solid rgba(212, 163, 115, 0.3);
-      padding: 4px 16px;
-      border-radius: 30px;
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
+        /* --- ALASAN (4 alasan) --- */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .reason-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .reason-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .reason-item .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .reason-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .reason-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
 
-    .hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 0.3rem;
-    }
-    .hero-name span { color: var(--accent); }
+        /* --- PORTOFOLIO / GALERI --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+        .gallery-item {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            min-height: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+        }
+        .gallery-item .icon {
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+        }
+        .gallery-item .label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+        .gallery-item .sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
 
-    .hero-title {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.7);
-      font-weight: 400;
-      margin-bottom: 1rem;
-    }
+        /* --- TESTIMONI --- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .testimonial-item {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        .testimonial-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .testimonial-item .quote {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+            line-height: 1.7;
+        }
+        .testimonial-item .quote::before {
+            content: '"';
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        .testimonial-item .quote::after {
+            content: '"';
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        .testimonial-item .author {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-top: 8px;
+        }
+        .testimonial-item .role {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
 
-    .hero-desc {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.6);
-      max-width: 480px;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
+        /* --- FOOTER --- */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 3rem 0;
+            margin: 0 -2rem;
+            border-radius: 40px 40px 0 0;
+        }
+        .footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+        }
+        .footer-brand .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        .footer-brand .name span {
+            color: var(--accent);
+        }
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            margin-top: 6px;
+            max-width: 300px;
+        }
+        .footer h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--primary-dark);
+            transform: translateY(-4px);
+        }
+        .footer-bottom {
+            grid-column: 1 / -1;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
 
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero .desc {
+                margin: 0 auto 1.5rem;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-stats {
+                max-width: 400px;
+                margin: 2rem auto 0;
+            }
+            .hero-avatar {
+                width: 180px;
+                height: 180px;
+                font-size: 3.5rem;
+            }
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+            .footer .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-brand p {
+                margin: 6px auto 0;
+            }
+            .footer-social {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+                width: 100%;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .navbar .container {
+                flex-wrap: wrap;
+            }
+            .section-light {
+                padding: 2rem 1rem;
+                margin: 0 -1rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .reasons-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
-    .btn-primary {
-      background: var(--accent);
-      color: var(--primary-dark);
-      padding: 12px 32px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(212, 163, 115, 0.4);
-    }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero-avatar {
+                width: 140px;
+                height: 140px;
+                font-size: 2.8rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      padding: 12px 32px;
-      border-radius: 30px;
-      font-weight: 500;
-      font-size: 0.9rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      cursor: pointer;
-      transition: var(--transition);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .stat-label {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-avatar {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--secondary), var(--primary-light));
-      border: 3px solid rgba(212, 163, 115, 0.3);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      font-weight: 700;
-      color: var(--accent);
-      position: relative;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .hero-avatar::after {
-      content: '';
-      position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      border: 1px solid rgba(212, 163, 115, 0.1);
-      animation: pulse-ring 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    @keyframes pulse-ring {
-      0%, 100% { transform: scale(1); opacity: 0.5; }
-      50% { transform: scale(1.05); opacity: 0; }
-    }
-
-    .hero-contact-floating {
-      position: absolute;
-      bottom: 2rem;
-      right: 2rem;
-      display: flex;
-      gap: 12px;
-    }
-
-    .floating-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
-    .floating-btn:hover {
-      background: var(--accent);
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 8px 24px rgba(212, 163, 115, 0.3);
-    }
-
-    /* ═══ SECTION ═══ */
-    .section {
-      padding: 4rem 0;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 2rem;
-    }
-
-    .section-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--accent);
-      opacity: 0.3;
-      line-height: 1;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, var(--border), transparent);
-    }
-
-    .section-sub {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: -1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    /* ═══ ABOUT ═══ */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-
-    .about-text {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      line-height: 1.9;
-    }
-    .about-text p + p { margin-top: 1rem; }
-
-    .about-highlight {
-      display: inline-block;
-      background: var(--accent-light);
-      color: var(--primary);
-      padding: 2px 12px;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-
-    .about-info-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .about-info-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem 1.2rem;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
-    }
-    .about-info-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--accent);
-    }
-    .about-info-card .label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .about-info-card .value {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-top: 2px;
-    }
-
-    /* ═══ EDUCATION ═══ */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-    }
-
-    .edu-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
-    }
-    .edu-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      transform: scaleX(0);
-      transition: var(--transition);
-    }
-    .edu-card:hover::before { transform: scaleX(1); }
-    .edu-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--accent);
-    }
-    .edu-card .icon { font-size: 2.2rem; display: block; margin-bottom: 6px; }
-    .edu-card .title { font-weight: 600; font-size: 1rem; color: var(--primary); }
-    .edu-card .sub { font-size: 0.85rem; color: var(--secondary); font-weight: 500; }
-    .edu-card .desc { font-size: 0.85rem; color: var(--text-light); margin-top: 4px; }
-    .edu-card .tag {
-      display: inline-block;
-      background: var(--accent-light);
-      color: var(--primary);
-      font-size: 0.65rem;
-      font-weight: 600;
-      padding: 2px 12px;
-      border-radius: 20px;
-      margin-top: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-
-    /* ═══ SERVICES ═══ */
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      transform: scaleX(0);
-      transition: var(--transition);
-    }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-xl);
-      border-color: var(--accent);
-    }
-
-    .service-card .icon {
-      font-size: 3.2rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .service-card .title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-    .service-card .sub-title {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--secondary);
-      margin-bottom: 8px;
-    }
-    .service-card .desc {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-top: 4px;
-      line-height: 1.7;
-    }
-    .service-card .price {
-      display: inline-block;
-      margin-top: 12px;
-      background: var(--gold-light);
-      padding: 4px 16px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--primary);
-    }
-    .service-card .features {
-      list-style: none;
-      margin-top: 12px;
-      text-align: left;
-      font-size: 0.85rem;
-      color: var(--text-light);
-    }
-    .service-card .features li {
-      padding: 4px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .service-card .features li::before {
-      content: '✓';
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .service-card .look-tag {
-      display: inline-block;
-      background: var(--accent-light);
-      color: var(--primary);
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 2px 12px;
-      border-radius: 20px;
-      margin-top: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* ═══ PORTFOLIO GALLERY ═══ */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .gallery-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.8rem 1.2rem;
-      text-align: center;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
-      min-height: 180px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .gallery-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      transform: scaleX(0);
-      transition: var(--transition);
-    }
-    .gallery-item:hover::before { transform: scaleX(1); }
-    .gallery-item:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-    }
-    .gallery-item .icon { font-size: 3rem; margin-bottom: 8px; }
-    .gallery-item .label {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--primary);
-    }
-    .gallery-item .sub {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* ═══ TESTIMONIALS ═══ */
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .testimonial-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-    .testimonial-item:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-    .testimonial-item .quote {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      font-style: italic;
-      line-height: 1.7;
-    }
-    .testimonial-item .quote::before {
-      content: '"';
-      color: var(--accent);
-      font-size: 1.5rem;
-    }
-    .testimonial-item .quote::after {
-      content: '"';
-      color: var(--accent);
-      font-size: 1.5rem;
-    }
-    .testimonial-item .author {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--primary);
-      margin-top: 8px;
-    }
-    .testimonial-item .role {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    /* ═══ FOOTER ═══ */
-    .footer {
-      background: var(--primary-dark);
-      color: var(--white);
-      padding: 3rem 0;
-      margin: 0 -2rem;
-      border-radius: 40px 40px 0 0;
-    }
-
-    .footer .container {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .footer-brand .name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-    }
-    .footer-brand .name span { color: var(--accent); }
-    .footer-brand p {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.85rem;
-      margin-top: 6px;
-      max-width: 300px;
-    }
-
-    .footer h4 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgba(255,255,255,0.3);
-      margin-bottom: 1rem;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-    .footer-links li { margin-bottom: 8px; }
-    .footer-links a {
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: var(--transition);
-    }
-    .footer-links a:hover { color: var(--accent); }
-
-    .footer-social {
-      display: flex;
-      gap: 12px;
-    }
-    .footer-social a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      transition: var(--transition);
-      font-size: 1rem;
-    }
-    .footer-social a:hover {
-      background: var(--accent);
-      color: var(--primary-dark);
-      transform: translateY(-4px);
-    }
-
-    .footer-bottom {
-      grid-column: 1 / -1;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      text-align: center;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.3);
-    }
-
-    /* ═══ RESPONSIVE ═══ */
-    @media (max-width: 968px) {
-      .hero .container { grid-template-columns: 1fr; text-align: center; }
-      .hero-desc { margin: 0 auto 2rem; }
-      .hero-actions { justify-content: center; }
-      .hero-stats { max-width: 400px; margin: 2rem auto 0; }
-      .hero-visual { order: -1; }
-      .hero-avatar { width: 200px; height: 200px; font-size: 3.5rem; }
-      .hero { padding: 6rem 0 3rem; }
-      .hero-contact-floating { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-info-cards { grid-template-columns: 1fr 1fr; }
-      .services-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-      .testimonial-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-      .edu-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-      .footer .container { grid-template-columns: 1fr; text-align: center; }
-      .footer-brand p { margin: 6px auto 0; }
-      .footer-social { justify-content: center; }
-      .nav-links { display: none; }
-      .nav-links.open { display: flex; flex-direction: column; gap: 1rem; padding: 1rem 0; }
-      .hamburger { display: flex; }
-      .navbar .container { flex-wrap: wrap; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 480px) {
-      .container { padding: 0 1rem; }
-      .hero-name { font-size: 2.2rem; }
-      .hero-avatar { width: 150px; height: 150px; font-size: 2.8rem; }
-      .about-info-cards { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-      .stat-item:last-child { grid-column: span 2; }
-      .section-title { font-size: 1.2rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .testimonial-grid { grid-template-columns: 1fr; }
-      .edu-grid { grid-template-columns: 1fr; }
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .text-accent { color: var(--accent); }
-    .text-muted { color: var(--text-muted); }
-    .text-center { text-align: center; }
-    .mt-1 { margin-top: 0.5rem; }
-    .mt-2 { margin-top: 1rem; }
-    .mt-3 { margin-top: 2rem; }
-  </style>
+        /* --- ANIMASI SCROLL --- */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
 
-<!-- ═══ NAVBAR ═══ -->
-<nav class="navbar" id="navbar">
-  <div class="container">
-    <a href="#" class="nav-logo">Siti<span>Amelia</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">Tentang</a></li>
-      <li><a href="#services">Layanan</a></li>
-      <li><a href="#portfolio">Portofolio</a></li>
-      <li><a href="#testimonials">Testimoni</a></li>
-      <li><a href="#contact" class="nav-cta">Booking</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ═══ HERO ═══ -->
-<section class="hero" id="home">
-  <div class="container">
-    <div class="hero-content">
-      <span class="hero-badge">✦ Professional Makeup Artist</span>
-      <h1 class="hero-name">Siti <span>Amelia</span></h1>
-      <p class="hero-title">Makeup Artist · Kabupaten Bekasi</p>
-      <p class="hero-desc">
-        MUA 2026 dengan spesialisasi <strong style="color:var(--accent);">Makeup Pengantin</strong>
-        dan <strong style="color:var(--accent);">Makeup Wisuda</strong>. Berkomitmen memberikan hasil riasan
-        yang sempurna, tahan lama, dan membuat setiap momen spesial Anda lebih berkesan.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">📩 Booking Sekarang</a>
-        <a href="#portfolio" class="btn-outline">📂 Lihat Portofolio</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-number">✓</div>
-          <div class="stat-label">MUA 2026</div>
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">Siti<span>Amelia</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="#contact" class="nav-cta">Booking</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Pilihan Look</div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">✦ MUA Profesional 2026</span>
+                <h1>Siti <span>Amelia</span></h1>
+                <p class="sub">Makeup Artist · Kabupaten Bekasi</p>
+                <p class="desc">
+                    Lulusan kursus MUA dengan spesialisasi <strong style="color:var(--accent);">Makeup Pengantin</strong>
+                    (Glam Look &amp; Thailand Look) dan <strong style="color:var(--accent);">Makeup Wisuda</strong>
+                    (Basic Look). Siap membantu Anda tampil memukau di hari spesial.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">📩 Booking Sekarang</a>
+                    <a href="#portfolio" class="btn-outline" style="color:white;border-color:rgba(255,255,255,0.3);">📂 Lihat Portofolio</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="number">✓</div>
+                        <div class="label">MUA 2026</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">3</div>
+                        <div class="label">Pilihan Look</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">Bekasi</div>
+                        <div class="label">Area Layanan</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-avatar">SA</div>
+            </div>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">Bekasi</div>
-          <div class="stat-label">Area Layanan</div>
+    </section>
+
+    <div class="container">
+
+        <!-- ═══ TENTANG SAYA ═══ -->
+        <section class="section fade-up" id="about">
+            <h2 class="section-title">Tentang Saya</h2>
+            <p class="section-subtitle">Makeup Artist yang siap menemani momen spesial Anda</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;">
+                <div style="font-size:0.95rem;color:var(--text-light);line-height:1.9;">
+                    <p>
+                        Saya adalah <strong style="color:var(--primary);">Makeup Artist</strong> angkatan 2026 dengan spesialisasi
+                        riasan pengantin dan wisuda. Saya memiliki passion dalam menciptakan tampilan yang
+                        <strong>elegan, natural, dan tahan lama</strong>.
+                    </p>
+                    <p style="margin-top:1rem;">
+                        Setiap klien adalah prioritas. Saya selalu memastikan <strong>konsultasi mendalam</strong>
+                        sebelum hari H untuk memahami keinginan, jenis kulit, dan gaya riasan yang diinginkan.
+                        Dengan produk berkualitas dan teknik yang tepat, saya berkomitmen memberikan hasil
+                        terbaik yang membuat klien tampil <strong>percaya diri dan memukau</strong>.
+                    </p>
+                    <p style="margin-top:1rem;">
+                        <strong>Layanan utama:</strong> Makeup Pengantin &amp; Makeup Wisuda.<br />
+                        <strong>Area layanan:</strong> Kabupaten Bekasi &amp; sekitarnya.
+                    </p>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.2rem;box-shadow:var(--shadow);">
+                        <div style="font-size:0.65rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Nama</div>
+                        <div style="font-size:0.9rem;font-weight:500;color:var(--text);margin-top:2px;">Siti Amelia</div>
+                    </div>
+                    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.2rem;box-shadow:var(--shadow);">
+                        <div style="font-size:0.65rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Profesi</div>
+                        <div style="font-size:0.9rem;font-weight:500;color:var(--text);margin-top:2px;">Makeup Artist</div>
+                    </div>
+                    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.2rem;box-shadow:var(--shadow);">
+                        <div style="font-size:0.65rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Angkatan</div>
+                        <div style="font-size:0.9rem;font-weight:500;color:var(--text);margin-top:2px;">MUA 2026</div>
+                    </div>
+                    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.2rem;box-shadow:var(--shadow);">
+                        <div style="font-size:0.65rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">Area Layanan</div>
+                        <div style="font-size:0.9rem;font-weight:500;color:var(--text);margin-top:2px;">Kab. Bekasi &amp; Sekitarnya</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ PENDIDIKAN ═══ -->
+        <section class="section fade-up">
+            <h2 class="section-title">Pendidikan</h2>
+            <p class="section-subtitle">Latar belakang pendidikan penunjang karier MUA</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+                <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);transition:var(--transition);">
+                    <div style="font-size:2.2rem;display:block;margin-bottom:6px;">💄</div>
+                    <div style="font-weight:600;font-size:1rem;color:var(--primary);">Kursus Makeup Artist</div>
+                    <div style="font-size:0.85rem;color:var(--secondary);font-weight:500;">Kabupaten Bekasi</div>
+                    <div style="font-size:0.85rem;color:var(--text-light);margin-top:4px;">Mempelajari teknik riasan pengantin (Glam Look &amp; Thailand Look), riasan wisuda (Basic Look), color theory, skin prep, dan teknik aplikasi produk profesional</div>
+                    <span style="display:inline-block;background:var(--accent-light);color:var(--primary);font-size:0.65rem;font-weight:600;padding:2px 12px;border-radius:20px;margin-top:6px;text-transform:uppercase;letter-spacing:0.3px;">MUA 2026</span>
+                </div>
+                <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);transition:var(--transition);">
+                    <div style="font-size:2.2rem;display:block;margin-bottom:6px;">🎓</div>
+                    <div style="font-weight:600;font-size:1rem;color:var(--primary);">SMKN 1 Cabangbungin</div>
+                    <div style="font-size:0.85rem;color:var(--secondary);font-weight:500;">Jurusan IPA · Kabupaten Bekasi</div>
+                    <div style="font-size:0.85rem;color:var(--text-light);margin-top:4px;">2021 – 2024 · Lulus dengan nilai rata-rata 84,84</div>
+                    <span style="display:inline-block;background:var(--accent-light);color:var(--primary);font-size:0.65rem;font-weight:600;padding:2px 12px;border-radius:20px;margin-top:6px;text-transform:uppercase;letter-spacing:0.3px;">SMA · Lulus 2024</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ═══ ALASAN PILIH KAMI ═══ (section light) -->
+    <section class="section section-light fade-up">
+        <div class="container">
+            <h2 class="section-title">Mengapa Pilih Saya?</h2>
+            <p class="section-subtitle">4 alasan mempercayakan penampilan Anda kepada saya</p>
+            <div class="reasons-grid">
+                <div class="reason-item">
+                    <span class="icon">💄</span>
+                    <h4>MUA 2026</h4>
+                    <p>Lulusan kursus MUA dengan spesialisasi pengantin &amp; wisuda</p>
+                </div>
+                <div class="reason-item">
+                    <span class="icon">🏠</span>
+                    <h4>Home Service</h4>
+                    <p>Saya datang ke lokasi Anda: rumah, hotel, atau venue acara</p>
+                </div>
+                <div class="reason-item">
+                    <span class="icon">⏰</span>
+                    <h4>Tepat Waktu</h4>
+                    <p>Komitmen hadir on-time untuk setiap jadwal yang sudah dibooking</p>
+                </div>
+                <div class="reason-item">
+                    <span class="icon">💬</span>
+                    <h4>Responsif</h4>
+                    <p>Respons cepat via WhatsApp, siap konsultasi kapan saja</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-avatar">SA</div>
-    </div>
-  </div>
-  <div class="hero-contact-floating">
-    <a href="tel:085770592217" class="floating-btn" title="Telepon">📞</a>
-    <a href="mailto:sitiamelia@email.com" class="floating-btn" title="Email">✉️</a>
-    <a href="#" class="floating-btn" title="WhatsApp">💬</a>
-    <a href="#" class="floating-btn" title="Instagram">📷</a>
-  </div>
-</section>
+    </section>
 
-<div class="container">
+    <div class="container">
 
-  <!-- ═══ TENTANG SAYA ═══ -->
-  <section class="section fade-up" id="about">
-    <div class="section-header">
-      <span class="section-number">01</span>
-      <h2 class="section-title">Tentang Saya</h2>
-      <div class="section-line"></div>
+        <!-- ═══ LAYANAN ═══ -->
+        <section class="section fade-up" id="services">
+            <h2 class="section-title">Layanan</h2>
+            <p class="section-subtitle">Pilihan look untuk setiap momen spesial Anda</p>
+            <div class="services-grid">
+                <!-- Makeup Pengantin -->
+                <div class="service-card">
+                    <span class="icon">👰</span>
+                    <h3>Makeup Pengantin</h3>
+                    <div class="price">Mulai RpXXX.XXX</div>
+                    <div>
+                        <span class="look-tag">Glam Look / Bold</span>
+                        <span class="look-tag">Thailand Look</span>
+                    </div>
+                    <p class="desc">Riasan pengantin elegan, tahan lama, dan sesuai dengan gaya yang Anda inginkan.</p>
+                    <ul class="features">
+                        <li>Konsultasi pra-acara &amp; pilihan look</li>
+                        <li>Trial makeup</li>
+                        <li>Produk berkualitas &amp; aman</li>
+                        <li>Riasan tahan lama</li>
+                        <li>Touch-up kit</li>
+                    </ul>
+                </div>
+
+                <!-- Makeup Wisuda -->
+                <div class="service-card">
+                    <span class="icon">🎓</span>
+                    <h3>Makeup Wisuda</h3>
+                    <div class="price">Mulai RpXXX.XXX</div>
+                    <div>
+                        <span class="look-tag">Basic Look</span>
+                    </div>
+                    <p class="desc">Riasan wisuda yang fresh, natural, dan fotogenik. Tampil percaya diri di hari penting kelulusan Anda.</p>
+                    <ul class="features">
+                        <li>Konsultasi pra-acara</li>
+                        <li>Trial makeup</li>
+                        <li>Produk berkualitas &amp; aman</li>
+                        <li>Riasan tahan lama</li>
+                        <li>Touch-up kit</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="text-align:center;color:var(--text-muted);font-size:0.85rem;margin-top:1.5rem;">
+                ✦ Untuk informasi harga dan paket lengkap, silakan hubungi kontak di bawah
+            </p>
+        </section>
+
+        <!-- ═══ PORTOFOLIO ═══ -->
+        <section class="section fade-up" id="portfolio">
+            <h2 class="section-title">Portofolio</h2>
+            <p class="section-subtitle">Hasil karya riasan pengantin &amp; wisuda</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="icon">👰</div>
+                    <div class="label">Glam Look / Bold</div>
+                    <div class="sub">Makeup Pengantin</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="icon">👰</div>
+                    <div class="label">Thailand Look</div>
+                    <div class="sub">Makeup Pengantin</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="icon">🎓</div>
+                    <div class="label">Basic Look</div>
+                    <div class="sub">Makeup Wisuda</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="icon">🎓</div>
+                    <div class="label">Basic Look</div>
+                    <div class="sub">Makeup Wisuda</div>
+                </div>
+            </div>
+            <p style="text-align:center;color:var(--text-muted);font-size:0.85rem;margin-top:1.5rem;">
+                ✦ Portofolio foto akan segera diupdate dengan hasil karya terbaru
+            </p>
+        </section>
+
+        <!-- ═══ TESTIMONI ═══ -->
+        <section class="section fade-up" id="testimonials">
+            <h2 class="section-title">Testimoni</h2>
+            <p class="section-subtitle">Apa kata mereka yang sudah menggunakan jasa saya</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <div class="quote">
+                        Makeupnya bagus banget, tahan lama dari pagi sampai malam. Saya pilih Thailand Look dan hasilnya sangat elegan. Terima kasih Siti Amelia!
+                    </div>
+                    <div class="author">— Nisa</div>
+                    <div class="role">Klien Makeup Pengantin · Thailand Look</div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="quote">
+                        Riasan wisudanya fresh dan natural. Basic Look-nya bikin foto-foto saya jadi cantik semua. Siti Amelia sangat profesional dan ramah!
+                    </div>
+                    <div class="author">— Rina</div>
+                    <div class="role">Klien Makeup Wisuda · Basic Look</div>
+                </div>
+            </div>
+        </section>
+
     </div>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>
-          Saya adalah <span class="about-highlight">Makeup Artist</span> angkatan 2026 dengan spesialisasi
-          riasan pengantin dan wisuda. Saya memiliki passion dalam menciptakan tampilan yang
-          <strong>elegan, natural, dan tahan lama</strong> untuk setiap momen spesial klien.
-        </p>
-        <p>
-          Setiap klien adalah prioritas. Saya selalu memastikan <strong>konsultasi mendalam</strong>
-          sebelum hari H untuk memahami keinginan, jenis kulit, dan gaya riasan yang diinginkan.
-          Dengan produk berkualitas dan teknik yang tepat, saya berkomitmen memberikan hasil
-          terbaik yang membuat klien tampil <strong>percaya diri dan memukau</strong>.
-        </p>
-        <p>
-          <strong>Layanan utama:</strong> Makeup Pengantin &amp; Makeup Wisuda.
-          <br/>
-          <strong>Area layanan:</strong> Kabupaten Bekasi &amp; sekitarnya.
-        </p>
-      </div>
-      <div class="about-info-cards">
-        <div class="about-info-card">
-          <div class="label">Nama</div>
-          <div class="value">Siti Amelia</div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-brand">
+                <div class="name">Siti<span>Amelia</span></div>
+                <p>Makeup Artist angkatan 2026 berbasis di Kabupaten Bekasi. Siap membantu Anda tampil sempurna di hari spesial.</p>
+                <div class="footer-social" style="margin-top:1rem;">
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="WhatsApp">💬</a>
+                    <a href="mailto:sitiamelia@email.com" title="Email">✉️</a>
+                    <a href="tel:085770592217" title="Telepon">📞</a>
+                </div>
+            </div>
+            <div>
+                <h4>Navigasi</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Kontak &amp; Booking</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:085770592217">📞 0857-7059-2217</a></li>
+                    <li><a href="mailto:sitiamelia@email.com">✉️ sitiamelia@email.com</a></li>
+                    <li style="color:rgba(255,255,255,0.4);font-size:0.85rem;">📍 Kabupaten Bekasi</li>
+                    <li style="color:rgba(255,255,255,0.4);font-size:0.85rem;">💄 Open Booking</li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Siti Amelia · Makeup Artist</p>
+                <p style="margin-top:4px;font-size:0.7rem;color:rgba(255,255,255,0.2);">
+                    Diperbarui: Agustus 2026
+                </p>
+            </div>
         </div>
-        <div class="about-info-card">
-          <div class="label">Profesi</div>
-          <div class="value">Makeup Artist</div>
-        </div>
-        <div class="about-info-card">
-          <div class="label">Angkatan</div>
-          <div class="value">MUA 2026</div>
-        </div>
-        <div class="about-info-card">
-          <div class="label">Area Layanan</div>
-          <div class="value">Kabupaten Bekasi &amp; Sekitarnya</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- ═══ PENDIDIKAN ═══ -->
-  <section class="section fade-up" id="education">
-    <div class="section-header">
-      <span class="section-number">02</span>
-      <h2 class="section-title">Pendidikan</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <span class="icon">💄</span>
-        <div class="title">Kursus Makeup Artist</div>
-        <div class="sub">Kabupaten Bekasi</div>
-        <div class="desc">Mempelajari teknik riasan pengantin (Glam Look &amp; Thailand Look), riasan wisuda (Basic Look), color theory, skin prep, dan teknik aplikasi produk profesional</div>
-        <span class="tag">MUA 2026</span>
-      </div>
-      <div class="edu-card">
-        <span class="icon">🎓</span>
-        <div class="title">SMKN 1 Cabangbungin</div>
-        <div class="sub">Jurusan IPA · Kabupaten Bekasi</div>
-        <div class="desc">2021 – 2024 · Lulus dengan nilai rata-rata 84,84</div>
-        <span class="tag">SMA · Lulus 2024</span>
-      </div>
-    </div>
-  </section>
+    <!-- ═══ JAVASCRIPT ═══ -->
+    <script>
+        // Hamburger
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
 
-  <!-- ═══ LAYANAN ═══ -->
-  <section class="section fade-up" id="services">
-    <div class="section-header">
-      <span class="section-number">03</span>
-      <h2 class="section-title">Layanan</h2>
-      <div class="section-line"></div>
-    </div>
-    <p class="section-sub">Pilihan look untuk setiap momen spesial Anda</p>
-    <div class="services-grid">
-      <!-- Makeup Pengantin -->
-      <div class="service-card">
-        <span class="icon">👰</span>
-        <div class="title">Makeup Pengantin</div>
-        <div class="desc">Riasan pengantin elegan, tahan lama, dan sesuai dengan gaya yang Anda inginkan.</div>
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-        <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
-          <div style="margin-bottom:12px;">
-            <span class="look-tag">Glam Look / Bold</span>
-            <p style="font-size:0.85rem;color:var(--text-light);margin-top:4px;">Tampilan bold dengan warna tegas, smokey eyes, dan lipstik berani — cocok untuk pengantin yang ingin tampil berani dan memukau.</p>
-          </div>
-          <div>
-            <span class="look-tag">Thailand Look</span>
-            <p style="font-size:0.85rem;color:var(--text-light);margin-top:4px;">Tampilan soft, natural, dengan gradasi warna lembut, alis rapi, dan lipstik nude — gaya riasan khas Thailand yang elegan.</p>
-          </div>
-        </div>
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        <div class="price">Mulai RpXXX.XXX</div>
-        <ul class="features">
-          <li>Konsultasi pra-acara &amp; pilihan look</li>
-          <li>Trial makeup</li>
-          <li>Produk berkualitas &amp; aman</li>
-          <li>Riasan tahan lama</li>
-          <li>Touch-up kit</li>
-        </ul>
-      </div>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255,255,255,0.95)';
+                navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)';
+            } else {
+                navbar.style.background = 'rgba(255,255,255,0.92)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
 
-      <!-- Makeup Wisuda -->
-      <div class="service-card">
-        <span class="icon">🎓</span>
-        <div class="title">Makeup Wisuda</div>
-        <div class="desc">Riasan wisuda yang fresh, natural, dan fotogenik. Tampil percaya diri di hari penting kelulusan Anda.</div>
-
-        <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
-          <span class="look-tag">Basic Look</span>
-          <p style="font-size:0.85rem;color:var(--text-light);margin-top:4px;">Tampilan natural dengan riasan ringan, fresh, dan glowing — sempurna untuk dokumentasi wisuda yang berkesan.</p>
-        </div>
-
-        <div class="price">Mulai RpXXX.XXX</div>
-        <ul class="features">
-          <li>Konsultasi pra-acara</li>
-          <li>Trial makeup</li>
-          <li>Produk berkualitas &amp; aman</li>
-          <li>Riasan tahan lama</li>
-          <li>Touch-up kit</li>
-        </ul>
-      </div>
-    </div>
-    <p class="text-center text-muted mt-3" style="font-size:0.85rem;">
-      ✦ Untuk informasi harga dan paket lengkap, silakan hubungi kontak di bawah
-    </p>
-  </section>
-
-  <!-- ═══ PORTOFOLIO ═══ -->
-  <section class="section fade-up" id="portfolio">
-    <div class="section-header">
-      <span class="section-number">04</span>
-      <h2 class="section-title">Portofolio</h2>
-      <div class="section-line"></div>
-    </div>
-    <p class="section-sub">Hasil karya riasan pengantin &amp; wisuda</p>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <div class="icon">👰</div>
-        <div class="label">Glam Look / Bold</div>
-        <div class="sub">Makeup Pengantin</div>
-      </div>
-      <div class="gallery-item">
-        <div class="icon">👰</div>
-        <div class="label">Thailand Look</div>
-        <div class="sub">Makeup Pengantin</div>
-      </div>
-      <div class="gallery-item">
-        <div class="icon">🎓</div>
-        <div class="label">Basic Look</div>
-        <div class="sub">Makeup Wisuda</div>
-      </div>
-      <div class="gallery-item">
-        <div class="icon">🎓</div>
-        <div class="label">Basic Look</div>
-        <div class="sub">Makeup Wisuda</div>
-      </div>
-    </div>
-    <p class="text-center text-muted mt-3" style="font-size:0.85rem;">
-      ✦ Portofolio foto akan segera diupdate dengan hasil karya terbaru
-    </p>
-  </section>
-
-  <!-- ═══ TESTIMONI ═══ -->
-  <section class="section fade-up" id="testimonials">
-    <div class="section-header">
-      <span class="section-number">05</span>
-      <h2 class="section-title">Testimoni</h2>
-      <div class="section-line"></div>
-    </div>
-    <p class="section-sub">Apa kata mereka yang sudah menggunakan jasa saya</p>
-    <div class="testimonial-grid">
-      <div class="testimonial-item">
-        <div class="quote">
-          Makeupnya bagus banget, tahan lama dari pagi sampai malam. Saya pilih Thailand Look dan hasilnya sangat elegan. Terima kasih Siti Amelia!
-        </div>
-        <div class="author">— Nisa</div>
-        <div class="role">Klien Makeup Pengantin · Thailand Look</div>
-      </div>
-      <div class="testimonial-item">
-        <div class="quote">
-          Riasan wisudanya fresh dan natural. Basic Look-nya bikin foto-foto saya jadi cantik semua. Siti Amelia sangat profesional dan ramah!
-        </div>
-        <div class="author">— Rina</div>
-        <div class="role">Klien Makeup Wisuda · Basic Look</div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<!-- ═══ FOOTER ═══ -->
-<footer class="footer" id="contact">
-  <div class="container">
-    <div class="footer-brand">
-      <div class="name">Siti<span>Amelia</span></div>
-      <p>Makeup Artist angkatan 2026 berbasis di Kabupaten Bekasi. Siap membantu Anda tampil sempurna di hari spesial.</p>
-      <div class="footer-social mt-2">
-        <a href="#" title="Instagram">📷</a>
-        <a href="#" title="WhatsApp">💬</a>
-        <a href="mailto:sitiamelia@email.com" title="Email">✉️</a>
-        <a href="tel:085770592217" title="Telepon">📞</a>
-      </div>
-    </div>
-    <div>
-      <h4>Navigasi</h4>
-      <ul class="footer-links">
-        <li><a href="#about">Tentang</a></li>
-        <li><a href="#services">Layanan</a></li>
-        <li><a href="#portfolio">Portofolio</a></li>
-        <li><a href="#testimonials">Testimoni</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Kontak &amp; Booking</h4>
-      <ul class="footer-links">
-        <li><a href="tel:085770592217">📞 0857-7059-2217</a></li>
-        <li><a href="mailto:sitiamelia@email.com">✉️ sitiamelia@email.com</a></li>
-        <li style="color:rgba(255,255,255,0.4);font-size:0.85rem;">📍 Kabupaten Bekasi</li>
-        <li style="color:rgba(255,255,255,0.4);font-size:0.85rem;">💄 Open Booking</li>
-      </ul>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Siti Amelia · Makeup Artist</p>
-      <p style="margin-top:4px;font-size:0.7rem;color:rgba(255,255,255,0.2);">
-        Diperbarui: Agustus 2026
-      </p>
-    </div>
-  </div>
-</footer>
-
-<script>
-  document.getElementById('hamburger').addEventListener('click', function() {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      navbar.style.background = 'rgba(255,255,255,0.95)';
-      navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)';
-    } else {
-      navbar.style.background = 'rgba(255,255,255,0.92)';
-      navbar.style.boxShadow = 'none';
-    }
-  });
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-        document.getElementById('navLinks').classList.remove('open');
-      }
-    });
-  });
-</script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('navLinks').classList.remove('open');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
