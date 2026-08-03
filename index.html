@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Siti Amelia — Makeup Artist</title>
+  <title>Siti Amelia — Makeup Artist Professional</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet"/>
   <style>
@@ -18,6 +18,8 @@
       --accent-light: #F0E6D3;
       --rose: #C98B8B;
       --rose-light: #F5E8E8;
+      --gold: #C9A96E;
+      --gold-light: #F5EDE0;
       --bg: #FAF7F5;
       --white: #FFFFFF;
       --text: #1A1A2E;
@@ -27,6 +29,7 @@
       --shadow-sm: 0 2px 8px rgba(26, 26, 46, 0.05);
       --shadow-md: 0 8px 32px rgba(26, 26, 46, 0.07);
       --shadow-lg: 0 20px 60px rgba(26, 26, 46, 0.10);
+      --shadow-xl: 0 40px 80px rgba(26, 26, 46, 0.14);
       --radius: 16px;
       --radius-lg: 24px;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -227,7 +230,7 @@
     .btn-primary {
       background: var(--accent);
       color: var(--primary-dark);
-      padding: 10px 28px;
+      padding: 12px 32px;
       border-radius: 30px;
       font-weight: 600;
       font-size: 0.9rem;
@@ -247,7 +250,7 @@
     .btn-outline {
       background: transparent;
       color: var(--white);
-      padding: 10px 28px;
+      padding: 12px 32px;
       border-radius: 30px;
       font-weight: 500;
       font-size: 0.9rem;
@@ -525,59 +528,104 @@
       letter-spacing: 0.3px;
     }
 
-    /* ═══ MAKEUP SKILLS ═══ */
-    .makeup-grid {
+    /* ═══ SERVICES ═══ */
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
     }
 
-    .makeup-item {
+    .service-card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.2rem;
-      text-align: center;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
       transition: var(--transition);
       box-shadow: var(--shadow-sm);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .makeup-item:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
       border-color: var(--accent);
     }
-    .makeup-item .icon {
-      font-size: 2.2rem;
-      margin-bottom: 6px;
+
+    .service-card .icon {
+      font-size: 3.2rem;
       display: block;
+      margin-bottom: 0.8rem;
     }
-    .makeup-item .name {
+    .service-card .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .service-card .desc {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 6px;
+      line-height: 1.7;
+    }
+    .service-card .price {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--gold-light);
+      padding: 4px 16px;
+      border-radius: 20px;
       font-weight: 600;
       font-size: 0.85rem;
       color: var(--primary);
     }
-    .makeup-item .desc {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 2px;
+    .service-card .features {
+      list-style: none;
+      margin-top: 12px;
+      text-align: left;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+    .service-card .features li {
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-card .features li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
     }
 
     /* ═══ PORTFOLIO GALLERY ═══ */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
     }
 
     .gallery-item {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.5rem 1.2rem;
+      padding: 1.8rem 1.2rem;
       text-align: center;
       transition: var(--transition);
       box-shadow: var(--shadow-sm);
-      min-height: 160px;
+      min-height: 180px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -592,7 +640,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--rose));
+      background: linear-gradient(90deg, var(--accent), var(--gold));
       transform: scaleX(0);
       transition: var(--transition);
     }
@@ -601,16 +649,62 @@
       transform: translateY(-6px);
       box-shadow: var(--shadow-lg);
     }
-    .gallery-item .icon { font-size: 2.8rem; margin-bottom: 8px; }
+    .gallery-item .icon { font-size: 3rem; margin-bottom: 8px; }
     .gallery-item .label {
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--primary);
     }
     .gallery-item .sub {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
       margin-top: 2px;
+    }
+
+    /* ═══ TESTIMONIALS ═══ */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .testimonial-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .testimonial-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .testimonial-item .quote {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-style: italic;
+      line-height: 1.7;
+    }
+    .testimonial-item .quote::before {
+      content: '"';
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+    .testimonial-item .quote::after {
+      content: '"';
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+    .testimonial-item .author {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--primary);
+      margin-top: 8px;
+    }
+    .testimonial-item .role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
     }
 
     /* ═══ LANGUAGES ═══ */
@@ -743,6 +837,8 @@
       .hero-contact-floating { display: none; }
       .about-grid { grid-template-columns: 1fr; }
       .about-info-cards { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .testimonial-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
       .footer .container { grid-template-columns: 1fr; text-align: center; }
       .footer-brand p { margin: 6px auto 0; }
       .footer-social { justify-content: center; }
@@ -762,7 +858,8 @@
       .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
       .stat-item:last-child { grid-column: span 2; }
       .section-title { font-size: 1.2rem; }
-      .makeup-grid { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
     }
 
     .fade-up {
@@ -777,6 +874,7 @@
 
     .text-accent { color: var(--accent); }
     .text-muted { color: var(--text-muted); }
+    .text-center { text-align: center; }
     .mt-1 { margin-top: 0.5rem; }
     .mt-2 { margin-top: 1rem; }
     .mt-3 { margin-top: 2rem; }
@@ -790,10 +888,10 @@
     <a href="#" class="nav-logo">Siti<span>Amelia</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">Tentang</a></li>
-      <li><a href="#education">Pendidikan</a></li>
-      <li><a href="#skills">Keahlian MUA</a></li>
+      <li><a href="#services">Layanan</a></li>
       <li><a href="#portfolio">Portofolio</a></li>
-      <li><a href="#contact" class="nav-cta">Kontak</a></li>
+      <li><a href="#testimonials">Testimoni</a></li>
+      <li><a href="#contact" class="nav-cta">Booking</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -805,26 +903,26 @@
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content">
-      <span class="hero-badge">✦ Makeup Artist in Progress</span>
+      <span class="hero-badge">✦ Professional Makeup Artist</span>
       <h1 class="hero-name">Siti <span>Amelia</span></h1>
       <p class="hero-title">Makeup Artist · Kabupaten Bekasi</p>
       <p class="hero-desc">
-        Sedang menempuh pendidikan di <strong style="color:var(--accent);">kelas Makeup Artist</strong>
-        dan akan segera memulai karier profesional sebagai MUA di Kabupaten Bekasi.
-        Passionate dalam menciptakan tampilan yang percaya diri dan memukau.
+        Lulusan kursus Makeup Artist dengan spesialisasi <strong style="color:var(--accent);">Makeup Pengantin</strong>
+        dan <strong style="color:var(--accent);">Makeup Wisuda</strong>. Berkomitmen memberikan hasil riasan
+        yang sempurna, tahan lama, dan membuat setiap momen spesial Anda lebih berkesan.
       </p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">📩 Pesan Jasa MUA</a>
+        <a href="#contact" class="btn-primary">📩 Booking Sekarang</a>
         <a href="#portfolio" class="btn-outline">📂 Lihat Portofolio</a>
       </div>
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-number">✦</div>
-          <div class="stat-label">Kelas MUA</div>
+          <div class="stat-number">✓</div>
+          <div class="stat-label">MUA Bersertifikat</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">2024</div>
-          <div class="stat-label">Tahun Lulus</div>
+          <div class="stat-number">2</div>
+          <div class="stat-label">Spesialisasi</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">Bekasi</div>
@@ -840,6 +938,7 @@
     <a href="tel:085770592217" class="floating-btn" title="Telepon">📞</a>
     <a href="mailto:sitiamelia@email.com" class="floating-btn" title="Email">✉️</a>
     <a href="#" class="floating-btn" title="WhatsApp">💬</a>
+    <a href="#" class="floating-btn" title="Instagram">📷</a>
   </div>
 </section>
 
@@ -855,17 +954,20 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          Saya adalah <span class="about-highlight">calon Makeup Artist</span> yang sedang menyelesaikan
-          pendidikan di kelas MUA. Saya memiliki passion besar dalam dunia kecantikan dan seni merias wajah.
+          Saya adalah <span class="about-highlight">Makeup Artist profesional</span> lulusan kursus MUA
+          dengan spesialisasi riasan pengantin dan wisuda. Saya memiliki passion dalam menciptakan
+          tampilan yang <strong>elegan, natural, dan tahan lama</strong> untuk setiap momen spesial klien.
         </p>
         <p>
-          Bagi saya, makeup adalah <strong>seni untuk meningkatkan rasa percaya diri</strong> seseorang.
-          Saya berkomitmen untuk memberikan layanan terbaik dengan teknik yang tepat, produk berkualitas,
-          dan sentuhan personal untuk setiap klien.
+          Setiap klien adalah prioritas. Saya selalu memastikan <strong>konsultasi mendalam</strong>
+          sebelum hari H untuk memahami keinginan, jenis kulit, dan gaya riasan yang diinginkan.
+          Dengan produk berkualitas dan teknik yang tepat, saya berkomitmen memberikan hasil
+          terbaik yang membuat klien tampil <strong>percaya diri dan memukau</strong>.
         </p>
         <p>
-          <strong>Layanan yang saya tawarkan:</strong>
-          Makeup pengantin, makeup pesta, makeup sehari-hari, dan konsultasi riasan sesuai kebutuhan klien.
+          <strong>Layanan utama:</strong> Makeup Pengantin &amp; Makeup Wisuda.
+          <br/>
+          <strong>Area layanan:</strong> Kabupaten Bekasi &amp; sekitarnya.
         </p>
       </div>
       <div class="about-info-cards">
@@ -879,7 +981,7 @@
         </div>
         <div class="about-info-card">
           <div class="label">Status</div>
-          <div class="value">Fresh Graduate MUA</div>
+          <div class="value">MUA Profesional</div>
         </div>
         <div class="about-info-card">
           <div class="label">Area Layanan</div>
@@ -890,7 +992,7 @@
   </section>
 
   <!-- ═══ PENDIDIKAN ═══ -->
-  <section class="section fade-up" id="education">
+  <section class="section fade-up">
     <div class="section-header">
       <span class="section-number">02</span>
       <h2 class="section-title">Pendidikan</h2>
@@ -898,10 +1000,10 @@
     </div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-title">💄 Kelas Makeup Artist</div>
-        <div class="timeline-sub">Sedang Berlangsung · Kabupaten Bekasi</div>
-        <div class="timeline-desc">Mempelajari teknik riasan wajah, color theory, skin prep, hingga makeup pengantin</div>
-        <span class="timeline-tag">MUA · 2024</span>
+        <div class="timeline-title">💄 Kursus Makeup Artist</div>
+        <div class="timeline-sub">Lulus · Kabupaten Bekasi</div>
+        <div class="timeline-desc">Mempelajari teknik riasan pengantin, riasan wisuda, color theory, skin prep, dan teknik aplikasi produk</div>
+        <span class="timeline-tag">MUA · Lulus 2024</span>
       </div>
       <div class="timeline-item">
         <div class="timeline-title">SMKN 1 Cabangbungin</div>
@@ -924,48 +1026,51 @@
     </div>
   </section>
 
-  <!-- ═══ KEAHLIAN MUA ═══ -->
-  <section class="section fade-up" id="skills">
+  <!-- ═══ LAYANAN ═══ -->
+  <section class="section fade-up" id="services">
     <div class="section-header">
       <span class="section-number">03</span>
-      <h2 class="section-title">Keahlian MUA</h2>
+      <h2 class="section-title">Layanan</h2>
       <div class="section-line"></div>
     </div>
-    <p class="section-sub">
-      Teknik dan layanan yang saya kuasai selama mengikuti kelas Makeup Artist
-    </p>
-    <div class="makeup-grid">
-      <div class="makeup-item">
+    <p class="section-sub">Spesialisasi utama — hasil maksimal untuk momen spesial Anda</p>
+    <div class="services-grid">
+      <div class="service-card">
         <span class="icon">👰</span>
-        <div class="name">Makeup Pengantin</div>
-        <div class="desc">Riasan pengantin modern &amp; klasik</div>
+        <div class="title">Makeup Pengantin</div>
+        <div class="desc">
+          Riasan pengantin elegan, tahan lama, dan natural. Konsultasi sebelum hari H
+          untuk memastikan tampilan sesuai dengan keinginan Anda.
+        </div>
+        <div class="price">Mulai RpXXX.XXX</div>
+        <ul class="features">
+          <li>Konsultasi pra-acara</li>
+          <li>Trial makeup</li>
+          <li>Produk berkualitas &amp; aman</li>
+          <li>Riasan tahan lama</li>
+          <li>Touch-up kit</li>
+        </ul>
       </div>
-      <div class="makeup-item">
-        <span class="icon">🎭</span>
-        <div class="name">Makeup Pesta</div>
-        <div class="desc">Tampilan glamor untuk acara spesial</div>
-      </div>
-      <div class="makeup-item">
-        <span class="icon">🌿</span>
-        <div class="name">Makeup Sehari-hari</div>
-        <div class="desc">Natural look untuk aktivitas harian</div>
-      </div>
-      <div class="makeup-item">
-        <span class="icon">🎨</span>
-        <div class="name">Color Theory</div>
-        <div class="desc">Pemahaman warna untuk hasil maksimal</div>
-      </div>
-      <div class="makeup-item">
-        <span class="icon">🧖</span>
-        <div class="name">Skin Prep</div>
-        <div class="desc">Perawatan kulit sebelum riasan</div>
-      </div>
-      <div class="makeup-item">
-        <span class="icon">📋</span>
-        <div class="name">Konsultasi Riasan</div>
-        <div class="desc">Rekomendasi sesuai kebutuhan klien</div>
+      <div class="service-card">
+        <span class="icon">🎓</span>
+        <div class="title">Makeup Wisuda</div>
+        <div class="desc">
+          Riasan wisuda yang fresh, natural, dan fotogenik. Tampil percaya diri
+          di hari penting kelulusan Anda.
+        </div>
+        <div class="price">Mulai RpXXX.XXX</div>
+        <ul class="features">
+          <li>Konsultasi pra-acara</li>
+          <li>Trial makeup</li>
+          <li>Produk berkualitas &amp; aman</li>
+          <li>Riasan tahan lama</li>
+          <li>Touch-up kit</li>
+        </ul>
       </div>
     </div>
+    <p class="text-center text-muted mt-3" style="font-size:0.85rem;">
+      ✦ Untuk informasi harga dan paket lengkap, silakan hubungi kontak di bawah
+    </p>
   </section>
 
   <!-- ═══ PORTOFOLIO ═══ -->
@@ -975,40 +1080,64 @@
       <h2 class="section-title">Portofolio</h2>
       <div class="section-line"></div>
     </div>
-    <p class="section-sub">
-      Karya dan proyek selama mengikuti kelas MUA — akan terus diperbarui
-    </p>
+    <p class="section-sub">Hasil karya riasan pengantin &amp; wisuda</p>
     <div class="gallery-grid">
       <div class="gallery-item">
         <div class="icon">👰</div>
         <div class="label">Makeup Pengantin</div>
-        <div class="sub">Tampilan elegan &amp; tahan lama</div>
+        <div class="sub">Tampilan elegan &amp; natural</div>
       </div>
       <div class="gallery-item">
-        <div class="icon">💄</div>
-        <div class="label">Makeup Glam</div>
-        <div class="sub">Untuk acara formal &amp; pesta</div>
+        <div class="icon">👰</div>
+        <div class="label">Makeup Pengantin</div>
+        <div class="sub">Glamour &amp; tahan lama</div>
       </div>
       <div class="gallery-item">
-        <div class="icon">🌸</div>
-        <div class="label">Natural Look</div>
-        <div class="sub">Fresh &amp; effortless daily makeup</div>
+        <div class="icon">🎓</div>
+        <div class="label">Makeup Wisuda</div>
+        <div class="sub">Fresh &amp; fotogenik</div>
       </div>
       <div class="gallery-item">
-        <div class="icon">📸</div>
-        <div class="label">Portofolio Klien</div>
-        <div class="sub">Dokumentasi hasil riasan</div>
+        <div class="icon">🎓</div>
+        <div class="label">Makeup Wisuda</div>
+        <div class="sub">Natural &amp; percaya diri</div>
       </div>
     </div>
-    <p style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:1.5rem;">
-      ✦ Portofolio foto akan segera diupdate setelah sesi pemotretan hasil karya
+    <p class="text-center text-muted mt-3" style="font-size:0.85rem;">
+      ✦ Portofolio foto akan segera diupdate dengan hasil karya terbaru
     </p>
+  </section>
+
+  <!-- ═══ TESTIMONI ═══ -->
+  <section class="section fade-up" id="testimonials">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">Testimoni</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="section-sub">Apa kata mereka yang sudah menggunakan jasa saya</p>
+    <div class="testimonial-grid">
+      <div class="testimonial-item">
+        <div class="quote">
+          Makeupnya bagus banget, tahan lama dari pagi sampai malam. Saya jadi lebih percaya diri di hari pernikahan saya. Terima kasih Siti Amelia!
+        </div>
+        <div class="author">— Nisa</div>
+        <div class="role">Klien Makeup Pengantin</div>
+      </div>
+      <div class="testimonial-item">
+        <div class="quote">
+          Riasan wisudanya fresh dan natural. Foto-foto saya jadi cantik semua. Siti Amelia sangat profesional dan ramah!
+        </div>
+        <div class="author">— Rina</div>
+        <div class="role">Klien Makeup Wisuda</div>
+      </div>
+    </div>
   </section>
 
   <!-- ═══ BAHASA ═══ -->
   <section class="section fade-up">
     <div class="section-header">
-      <span class="section-number">05</span>
+      <span class="section-number">06</span>
       <h2 class="section-title">Bahasa</h2>
       <div class="section-line"></div>
     </div>
@@ -1033,7 +1162,7 @@
   <div class="container">
     <div class="footer-brand">
       <div class="name">Siti<span>Amelia</span></div>
-      <p>Makeup Artist berbasis di Kabupaten Bekasi. Siap membantu Anda tampil percaya diri untuk setiap momen spesial.</p>
+      <p>Makeup Artist profesional berbasis di Kabupaten Bekasi. Siap membantu Anda tampil sempurna di hari spesial.</p>
       <div class="footer-social mt-2">
         <a href="#" title="Instagram">📷</a>
         <a href="#" title="WhatsApp">💬</a>
@@ -1045,9 +1174,9 @@
       <h4>Navigasi</h4>
       <ul class="footer-links">
         <li><a href="#about">Tentang</a></li>
-        <li><a href="#education">Pendidikan</a></li>
-        <li><a href="#skills">Keahlian</a></li>
+        <li><a href="#services">Layanan</a></li>
         <li><a href="#portfolio">Portofolio</a></li>
+        <li><a href="#testimonials">Testimoni</a></li>
       </ul>
     </div>
     <div>
