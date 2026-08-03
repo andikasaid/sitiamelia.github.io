@@ -541,7 +541,7 @@
     .service-card .icon {
       font-size: 3.2rem;
       display: block;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.5rem;
     }
     .service-card .title {
       font-family: 'Playfair Display', serif;
@@ -549,10 +549,16 @@
       font-weight: 600;
       color: var(--primary);
     }
+    .service-card .sub-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
     .service-card .desc {
       font-size: 0.9rem;
       color: var(--text-light);
-      margin-top: 6px;
+      margin-top: 4px;
       line-height: 1.7;
     }
     .service-card .price {
@@ -582,6 +588,19 @@
       content: '✓';
       color: var(--accent);
       font-weight: 700;
+    }
+
+    .service-card .look-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--primary);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 12px;
+      border-radius: 20px;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     /* ═══ PORTFOLIO GALLERY ═══ */
@@ -846,7 +865,7 @@
       <h1 class="hero-name">Siti <span>Amelia</span></h1>
       <p class="hero-title">Makeup Artist · Kabupaten Bekasi</p>
       <p class="hero-desc">
-        Lulusan kursus Makeup Artist dengan spesialisasi <strong style="color:var(--accent);">Makeup Pengantin</strong>
+        MUA 2026 dengan spesialisasi <strong style="color:var(--accent);">Makeup Pengantin</strong>
         dan <strong style="color:var(--accent);">Makeup Wisuda</strong>. Berkomitmen memberikan hasil riasan
         yang sempurna, tahan lama, dan membuat setiap momen spesial Anda lebih berkesan.
       </p>
@@ -857,11 +876,11 @@
       <div class="hero-stats">
         <div class="stat-item">
           <div class="stat-number">✓</div>
-          <div class="stat-label">MUA Bersertifikat</div>
+          <div class="stat-label">MUA 2026</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">2</div>
-          <div class="stat-label">Spesialisasi</div>
+          <div class="stat-number">3</div>
+          <div class="stat-label">Pilihan Look</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">Bekasi</div>
@@ -893,9 +912,9 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          Saya adalah <span class="about-highlight">Makeup Artist profesional</span> lulusan kursus MUA
-          dengan spesialisasi riasan pengantin dan wisuda. Saya memiliki passion dalam menciptakan
-          tampilan yang <strong>elegan, natural, dan tahan lama</strong> untuk setiap momen spesial klien.
+          Saya adalah <span class="about-highlight">Makeup Artist</span> angkatan 2026 dengan spesialisasi
+          riasan pengantin dan wisuda. Saya memiliki passion dalam menciptakan tampilan yang
+          <strong>elegan, natural, dan tahan lama</strong> untuk setiap momen spesial klien.
         </p>
         <p>
           Setiap klien adalah prioritas. Saya selalu memastikan <strong>konsultasi mendalam</strong>
@@ -919,8 +938,8 @@
           <div class="value">Makeup Artist</div>
         </div>
         <div class="about-info-card">
-          <div class="label">Status</div>
-          <div class="value">MUA Profesional</div>
+          <div class="label">Angkatan</div>
+          <div class="value">MUA 2026</div>
         </div>
         <div class="about-info-card">
           <div class="label">Area Layanan</div>
@@ -941,9 +960,9 @@
       <div class="edu-card">
         <span class="icon">💄</span>
         <div class="title">Kursus Makeup Artist</div>
-        <div class="sub">Lulus · Kabupaten Bekasi</div>
-        <div class="desc">Mempelajari teknik riasan pengantin, riasan wisuda, color theory, skin prep, dan teknik aplikasi produk profesional</div>
-        <span class="tag">MUA · Lulus 2024</span>
+        <div class="sub">Kabupaten Bekasi</div>
+        <div class="desc">Mempelajari teknik riasan pengantin (Glam Look &amp; Thailand Look), riasan wisuda (Basic Look), color theory, skin prep, dan teknik aplikasi produk profesional</div>
+        <span class="tag">MUA 2026</span>
       </div>
       <div class="edu-card">
         <span class="icon">🎓</span>
@@ -962,31 +981,46 @@
       <h2 class="section-title">Layanan</h2>
       <div class="section-line"></div>
     </div>
-    <p class="section-sub">Spesialisasi utama — hasil maksimal untuk momen spesial Anda</p>
+    <p class="section-sub">Pilihan look untuk setiap momen spesial Anda</p>
     <div class="services-grid">
+      <!-- Makeup Pengantin -->
       <div class="service-card">
         <span class="icon">👰</span>
         <div class="title">Makeup Pengantin</div>
-        <div class="desc">
-          Riasan pengantin elegan, tahan lama, dan natural. Konsultasi sebelum hari H
-          untuk memastikan tampilan sesuai dengan keinginan Anda.
+        <div class="desc">Riasan pengantin elegan, tahan lama, dan sesuai dengan gaya yang Anda inginkan.</div>
+
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+          <div style="margin-bottom:12px;">
+            <span class="look-tag">Glam Look / Bold</span>
+            <p style="font-size:0.85rem;color:var(--text-light);margin-top:4px;">Tampilan bold dengan warna tegas, smokey eyes, dan lipstik berani — cocok untuk pengantin yang ingin tampil berani dan memukau.</p>
+          </div>
+          <div>
+            <span class="look-tag">Thailand Look</span>
+            <p style="font-size:0.85rem;color:var(--text-light);margin-top:4px;">Tampilan soft, natural, dengan gradasi warna lembut, alis rapi, dan lipstik nude — gaya riasan khas Thailand yang elegan.</p>
+          </div>
         </div>
+
         <div class="price">Mulai RpXXX.XXX</div>
         <ul class="features">
-          <li>Konsultasi pra-acara</li>
+          <li>Konsultasi pra-acara &amp; pilihan look</li>
           <li>Trial makeup</li>
           <li>Produk berkualitas &amp; aman</li>
           <li>Riasan tahan lama</li>
           <li>Touch-up kit</li>
         </ul>
       </div>
+
+      <!-- Makeup Wisuda -->
       <div class="service-card">
         <span class="icon">🎓</span>
         <div class="title">Makeup Wisuda</div>
-        <div class="desc">
-          Riasan wisuda yang fresh, natural, dan fotogenik. Tampil percaya diri
-          di hari penting kelulusan Anda.
+        <div class="desc">Riasan wisuda yang fresh, natural, dan fotogenik. Tampil percaya diri di hari penting kelulusan Anda.</div>
+
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+          <span class="look-tag">Basic Look</span>
+          <p style="font-size:0.85rem;color:var(--text-light);margin-top:4px;">Tampilan natural dengan riasan ringan, fresh, dan glowing — sempurna untuk dokumentasi wisuda yang berkesan.</p>
         </div>
+
         <div class="price">Mulai RpXXX.XXX</div>
         <ul class="features">
           <li>Konsultasi pra-acara</li>
@@ -1013,23 +1047,23 @@
     <div class="gallery-grid">
       <div class="gallery-item">
         <div class="icon">👰</div>
-        <div class="label">Makeup Pengantin</div>
-        <div class="sub">Tampilan elegan &amp; natural</div>
+        <div class="label">Glam Look / Bold</div>
+        <div class="sub">Makeup Pengantin</div>
       </div>
       <div class="gallery-item">
         <div class="icon">👰</div>
-        <div class="label">Makeup Pengantin</div>
-        <div class="sub">Glamour &amp; tahan lama</div>
+        <div class="label">Thailand Look</div>
+        <div class="sub">Makeup Pengantin</div>
       </div>
       <div class="gallery-item">
         <div class="icon">🎓</div>
-        <div class="label">Makeup Wisuda</div>
-        <div class="sub">Fresh &amp; fotogenik</div>
+        <div class="label">Basic Look</div>
+        <div class="sub">Makeup Wisuda</div>
       </div>
       <div class="gallery-item">
         <div class="icon">🎓</div>
-        <div class="label">Makeup Wisuda</div>
-        <div class="sub">Natural &amp; percaya diri</div>
+        <div class="label">Basic Look</div>
+        <div class="sub">Makeup Wisuda</div>
       </div>
     </div>
     <p class="text-center text-muted mt-3" style="font-size:0.85rem;">
@@ -1048,17 +1082,17 @@
     <div class="testimonial-grid">
       <div class="testimonial-item">
         <div class="quote">
-          Makeupnya bagus banget, tahan lama dari pagi sampai malam. Saya jadi lebih percaya diri di hari pernikahan saya. Terima kasih Siti Amelia!
+          Makeupnya bagus banget, tahan lama dari pagi sampai malam. Saya pilih Thailand Look dan hasilnya sangat elegan. Terima kasih Siti Amelia!
         </div>
         <div class="author">— Nisa</div>
-        <div class="role">Klien Makeup Pengantin</div>
+        <div class="role">Klien Makeup Pengantin · Thailand Look</div>
       </div>
       <div class="testimonial-item">
         <div class="quote">
-          Riasan wisudanya fresh dan natural. Foto-foto saya jadi cantik semua. Siti Amelia sangat profesional dan ramah!
+          Riasan wisudanya fresh dan natural. Basic Look-nya bikin foto-foto saya jadi cantik semua. Siti Amelia sangat profesional dan ramah!
         </div>
         <div class="author">— Rina</div>
-        <div class="role">Klien Makeup Wisuda</div>
+        <div class="role">Klien Makeup Wisuda · Basic Look</div>
       </div>
     </div>
   </section>
@@ -1070,7 +1104,7 @@
   <div class="container">
     <div class="footer-brand">
       <div class="name">Siti<span>Amelia</span></div>
-      <p>Makeup Artist profesional berbasis di Kabupaten Bekasi. Siap membantu Anda tampil sempurna di hari spesial.</p>
+      <p>Makeup Artist angkatan 2026 berbasis di Kabupaten Bekasi. Siap membantu Anda tampil sempurna di hari spesial.</p>
       <div class="footer-social mt-2">
         <a href="#" title="Instagram">📷</a>
         <a href="#" title="WhatsApp">💬</a>
