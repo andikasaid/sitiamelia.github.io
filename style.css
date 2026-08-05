@@ -344,20 +344,22 @@ img{max-width:100%;display:block}
 /* RESPONSIVE HP */
 @media (max-width: 768px) {
     .hero .container {
-        flex-direction: column-reverse; 
-        gap: 2rem;
+        flex-direction: column;
+        gap: 1.5rem; /* Jarak antar elemen (judul, video, teks) */
         text-align: center;
     }
+    
     .hero-text {
         max-width: 100%;
     }
+
+    /* Tambahan ini biar videonya rapi dan ada jarak atas-bawah */
     .hero-video-wrapper {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        margin: 1.5rem 0; /* Jarak atas dan bawah video */
     }
+
     .hero-video {
-        max-width: 320px; /* Batasi lebar maksimal video agar tidak terlalu besar di HP */
-        aspect-ratio: 9 / 16; /* UBAH INI JADI 9/16 AGAR TETAP POTRAIT DI HP */
+        max-width: 320px;
+        aspect-ratio: 9 / 16;
     }
 }
