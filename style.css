@@ -344,15 +344,20 @@ img{max-width:100%;display:block}
 /* RESPONSIVE HP */
 @media (max-width: 768px) {
     .hero .container {
-        flex-direction: column-reverse; /* Video di atas, teks di bawah */
+        flex-direction: column-reverse; 
         gap: 2rem;
         text-align: center;
     }
     .hero-text {
         max-width: 100%;
     }
+    .hero-video-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
     .hero-video {
-        max-width: 100%;
-        aspect-ratio: 16 / 9; /* Di HP jadi landscape biar muat */
+        max-width: 320px; /* Batasi lebar maksimal video agar tidak terlalu besar di HP */
+        aspect-ratio: 9 / 16; /* UBAH INI JADI 9/16 AGAR TETAP POTRAIT DI HP */
     }
 }
