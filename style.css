@@ -327,15 +327,13 @@ img{max-width:100%;display:block}
 .hero-video-wrapper {
     flex: 1;
     display: flex;
-    justify-content: center;
-  /* --- TAMBAHKAN INI --- */
-    margin-left: 2rem;  /* Geser videonya sedikit ke kanan */
-    padding-right: 1rem; /* Mengurangi jarak kosong di sebelah kanan video */
+    justify-content: center; /* Tetap di tengah kolomnya */
+    padding-left: 2.5rem; /* Tambahkan jarak dorong dari teks */
 }
 
 .hero-video {
     width: 100%;
-    max-width: 420px; /* DILEBARKAN DARI 320px JADI 400px */
+    max-width: 380px; /* DILEBARKAN DARI 320px JADI 400px */
     aspect-ratio: 9 / 16;
     object-fit: cover;
     border-radius: 24px; 
