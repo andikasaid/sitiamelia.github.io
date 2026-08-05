@@ -4,206 +4,33 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Siti Amelia MUA — Makeup Artist Kabupaten Bekasi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-
-:root{
-  --wine:#5C1F2E;
-  --wine-dark:#3A121C;
-  --blush:#F4E4DE;
-  --ivory:#FBF6F1;
-  --gold:#B8874F;
-  --gold-soft:#E7D2AA;
-  --text:#2B1A1D;
-  --text-light:#6B5457;
-  --text-muted:#9C8689;
-  --white:#fff;
-  --shadow:0 10px 30px rgba(58,18,28,.08);
-  --shadow-lg:0 30px 60px rgba(58,18,28,.14);
-  --radius:18px;
-}
-
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text);line-height:1.6;overflow-x:hidden}
-.serif{font-family:'Cormorant Garamond',serif}
-.container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
-
-/* NAVBAR */
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(251,246,241,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(92,31,46,.08);padding:.9rem 0;transition:.3s}
-.navbar .container{display:flex;justify-content:space-between;align-items:center}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.5rem;color:var(--wine-dark);text-decoration:none;letter-spacing:.5px}
-.nav-logo span{color:var(--gold)}
-.nav-links{display:flex;gap:2rem;list-style:none;font-size:.85rem;font-weight:500}
-.nav-links a{color:var(--text-light);text-decoration:none;transition:.25s}
-.nav-links a:hover{color:var(--wine)}
-.nav-cta{background:var(--wine);color:var(--white)!important;padding:8px 20px;border-radius:30px}
-.nav-cta:hover{background:var(--wine-dark)!important}
-.hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:4px}
-.hamburger span{width:22px;height:2px;background:var(--wine-dark);border-radius:2px}
-
-/* HERO */
-.hero{padding:9rem 0 4rem;background:linear-gradient(165deg,var(--wine-dark),var(--wine) 60%,#7A2E3E);border-radius:0 0 50px 50px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(184,135,79,.18),transparent 70%)}
-.hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
-.eyebrow{display:inline-block;color:var(--gold-soft);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;border:1px solid rgba(231,210,170,.35);padding:5px 16px;border-radius:30px;margin-bottom:1.2rem}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:3.4rem;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:.4rem}
-.hero h1 span{color:var(--gold-soft);font-style:italic}
-.hero-tag{color:rgba(255,255,255,.75);font-size:1.05rem;margin-bottom:1.2rem}
-.hero-desc{color:rgba(255,255,255,.6);font-size:.95rem;max-width:440px;margin-bottom:2rem}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.btn{padding:13px 30px;border-radius:30px;font-weight:600;font-size:.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:.25s;border:none;cursor:pointer}
-.btn-gold{background:var(--gold);color:var(--wine-dark)}
-.btn-gold:hover{background:var(--gold-soft);transform:translateY(-3px);box-shadow:0 10px 24px rgba(184,135,79,.35)}
-.btn-ghost{background:rgba(255,255,255,.08);color:var(--white);border:1px solid rgba(255,255,255,.25)}
-.btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-3px)}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.12);max-width:420px}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--gold-soft)}
-.stat-label{font-size:.68rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px}
-.hero-photo{aspect-ratio:3/4;border-radius:24px;background:linear-gradient(150deg,#7A2E3E,#3A121C);border:1px solid rgba(231,210,170,.25);box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center;text-align:center;color:rgba(255,255,255,.55);font-size:.85rem;padding:2rem}
-
-/* SECTION */
-.section{padding:4.5rem 0}
-.section-eyebrow{color:var(--gold);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:.4rem;display:block}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--wine-dark);margin-bottom:.6rem}
-.section-sub{color:var(--text-muted);font-size:.95rem;max-width:520px}
-.section-head{margin-bottom:2.4rem}
-.section-head.center{text-align:center;margin-left:auto;margin-right:auto}
-.section-head.center .section-sub{margin-left:auto;margin-right:auto}
-
-/* WHY 4 REASONS */
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-.why-card{background:var(--white);border-radius:var(--radius);padding:1.8rem 1.4rem;box-shadow:var(--shadow);text-align:center;transition:.3s}
-.why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.why-card .ic{font-size:2rem;margin-bottom:.6rem;display:block}
-.why-card h4{font-size:.95rem;font-weight:600;color:var(--wine-dark);margin-bottom:.3rem}
-.why-card p{font-size:.82rem;color:var(--text-muted)}
-
-/* GALLERY */
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.gallery-item{aspect-ratio:3/4;border-radius:14px;background:linear-gradient(150deg,var(--blush),var(--gold-soft));display:flex;align-items:flex-end;padding:1rem;position:relative;overflow:hidden;box-shadow:var(--shadow);transition:.3s}
-.gallery-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.gallery-item .cap{background:rgba(58,18,28,.55);color:var(--white);font-size:.72rem;font-weight:600;padding:6px 12px;border-radius:20px;backdrop-filter:blur(4px)}
-.gallery-note{text-align:center;color:var(--text-muted);font-size:.85rem;margin-top:1.6rem}
-
-/* SERVICES */
-.services-list{display:flex;flex-direction:column;gap:1rem}
-.service-row{background:var(--white);border-radius:var(--radius);padding:1.6rem 1.8rem;box-shadow:var(--shadow);display:grid;grid-template-columns:60px 1fr auto;gap:1.4rem;align-items:center;transition:.3s}
-.service-row:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
-.service-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold-soft)}
-.service-row h4{font-size:1.1rem;color:var(--wine-dark);margin-bottom:.2rem}
-.service-row p{font-size:.85rem;color:var(--text-muted)}
-.service-looks{display:flex;gap:6px;flex-wrap:wrap;margin-top:.5rem}
-.look-chip{background:var(--blush);color:var(--wine-dark);font-size:.68rem;font-weight:600;padding:3px 12px;border-radius:20px}
-.service-price{font-weight:700;color:var(--wine);font-size:.95rem;white-space:nowrap}
-
-/* PRICING */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.price-card{background:var(--white);border-radius:var(--radius);padding:2rem 1.6rem;box-shadow:var(--shadow);text-align:center;border:2px solid transparent;transition:.3s}
-.price-card.featured{border-color:var(--gold);transform:scale(1.04)}
-.price-card:hover{transform:translateY(-6px)}
-.price-card .badge{display:inline-block;background:var(--gold);color:var(--wine-dark);font-size:.65rem;font-weight:700;padding:3px 14px;border-radius:20px;margin-bottom:.8rem;text-transform:uppercase;letter-spacing:.5px}
-.price-card h4{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--wine-dark);margin-bottom:.3rem}
-.price-card .amount{font-size:1.6rem;font-weight:700;color:var(--wine);margin:.6rem 0}
-.price-card .amount span{font-size:.75rem;color:var(--text-muted);font-weight:500}
-.price-card ul{list-style:none;text-align:left;margin:1.2rem 0;font-size:.85rem;color:var(--text-light)}
-.price-card ul li{padding:5px 0;display:flex;gap:8px}
-.price-card ul li::before{content:'✓';color:var(--gold);font-weight:700}
-
-/* TESTIMONIALS */
-.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
-.testi-card{background:var(--white);border-radius:var(--radius);padding:1.8rem;box-shadow:var(--shadow)}
-.testi-card .quote{font-size:.92rem;color:var(--text-light);font-style:italic;line-height:1.75}
-.testi-card .author{margin-top:1rem;font-weight:700;color:var(--wine-dark);font-size:.88rem}
-.testi-card .role{font-size:.75rem;color:var(--text-muted)}
-
-/* BOOKING STEPS */
-.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-.step-card{text-align:center;padding:1.4rem}
-.step-num{width:44px;height:44px;border-radius:50%;background:var(--wine);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto .8rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem}
-.step-card h5{font-size:.88rem;color:var(--wine-dark);margin-bottom:.3rem}
-.step-card p{font-size:.78rem;color:var(--text-muted)}
-
-/* FAQ */
-.faq-item{background:var(--white);border-radius:14px;margin-bottom:.8rem;box-shadow:var(--shadow);overflow:hidden}
-.faq-q{padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;font-size:.92rem;color:var(--wine-dark)}
-.faq-q .plus{transition:.3s;color:var(--gold);font-size:1.2rem}
-.faq-item.open .plus{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:.3s;padding:0 1.5rem;font-size:.85rem;color:var(--text-light)}
-.faq-item.open .faq-a{max-height:200px;padding:0 1.5rem 1.2rem}
-
-/* CTA BAND */
-.cta-band{background:linear-gradient(135deg,var(--wine-dark),var(--wine));border-radius:30px;padding:3.2rem 2.5rem;text-align:center;color:var(--white);margin:1rem 0}
-.cta-band h3{font-family:'Cormorant Garamond',serif;font-size:2rem;margin-bottom:.6rem}
-.cta-band p{color:rgba(255,255,255,.65);margin-bottom:1.6rem;font-size:.92rem}
-
-/* FOOTER */
-.footer{background:var(--wine-dark);color:var(--white);padding:3rem 0 1.6rem;margin-top:2rem;border-radius:50px 50px 0 0}
-.footer .container{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
-.footer h4{font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.35);margin-bottom:1rem}
-.footer-brand .name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700}
-.footer-brand .name span{color:var(--gold-soft)}
-.footer-brand p{color:rgba(255,255,255,.5);font-size:.85rem;margin-top:.6rem;max-width:280px}
-.footer-links{list-style:none}
-.footer-links li{margin-bottom:8px}
-.footer-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem}
-.footer-links a:hover{color:var(--gold-soft)}
-.footer-bottom{grid-column:1/-1;padding-top:1.6rem;margin-top:1rem;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:.78rem;color:rgba(255,255,255,.3)}
-
-.fade-up{opacity:0;transform:translateY(24px);transition:.6s cubic-bezier(.4,0,.2,1)}
-.fade-up.visible{opacity:1;transform:translateY(0)}
-
-/* WA FLOAT */
-.wa-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;text-decoration:none;box-shadow:0 10px 24px rgba(37,211,102,.4);z-index:999;transition:.3s}
-.wa-float:hover{transform:scale(1.08)}
-
-@media(max-width:900px){
-  .hero .container{grid-template-columns:1fr;text-align:center}
-  .hero-desc{margin:0 auto 2rem}
-  .hero-actions{justify-content:center}
-  .hero-stats{margin:0 auto}
-  .hero-photo{max-width:280px;margin:0 auto}
-  .why-grid{grid-template-columns:1fr 1fr}
-  .gallery-grid{grid-template-columns:1fr 1fr}
-  .pricing-grid{grid-template-columns:1fr}
-  .price-card.featured{transform:none}
-  .testi-grid{grid-template-columns:1fr}
-  .steps-row{grid-template-columns:1fr 1fr}
-  .service-row{grid-template-columns:1fr;text-align:center}
-  .footer .container{grid-template-columns:1fr;text-align:center}
-  .footer-brand p{margin:.6rem auto 0}
-  .nav-links{display:none}
-  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--ivory);padding:1.2rem;gap:1rem;box-shadow:var(--shadow)}
-  .hamburger{display:flex}
-}
-@media(max-width:480px){
-  .hero h1{font-size:2.3rem}
-  .why-grid{grid-template-columns:1fr}
-  .gallery-grid{grid-template-columns:1fr 1fr}
-  .steps-row{grid-template-columns:1fr 1fr}
-  .section-title{font-size:1.7rem}
-}
-</style>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
 <nav class="navbar" id="navbar">
   <div class="container">
-    <a href="#" class="nav-logo">Siti<span>Amelia</span></a>
+    <a href="index.html" class="nav-logo">Siti<span>Amelia</span></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#tentang">Tentang</a></li>
-      <li><a href="#layanan">Layanan</a></li>
-      <li><a href="#portofolio">Portofolio</a></li>
-      <li><a href="#harga">Harga</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#kontak" class="nav-cta">Booking</a></li>
+      <li><a href="index.html" class="active">Beranda</a></li>
+      <li><a href="about.html">Tentang</a></li>
+      <li class="has-dropdown">
+        <a href="layanan.html">Layanan</a>
+        <ul class="dropdown">
+          <li><a href="layanan.html#wisuda">Makeup Wisuda — Basic Look</a></li>
+          <li><a href="layanan.html#glam">Makeup Pengantin — Glam / Bold</a></li>
+          <li><a href="layanan.html#thailand">Makeup Pengantin — Thailand Look</a></li>
+        </ul>
+      </li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Booking</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="container">
     <div>
@@ -213,7 +40,7 @@ body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text);li
       <p class="hero-desc">Melayani makeup pengantin (Glam Look &amp; Thailand Look) dan makeup wisuda (Basic Look) untuk area Kabupaten Bekasi dan sekitarnya. Konsultasi dulu sebelum booking, hasil disesuaikan sama wajah dan keinginan kamu.</p>
       <div class="hero-actions">
         <a href="https://wa.me/6285770592217?text=Halo%20Kak%20Siti%2C%20saya%20mau%20tanya-tanya%20soal%20jasa%20makeup" class="btn btn-gold" target="_blank">💬 Booking via WhatsApp</a>
-        <a href="#portofolio" class="btn btn-ghost">Lihat Portofolio</a>
+        <a href="gallery.html" class="btn btn-ghost">Lihat Gallery</a>
       </div>
       <div class="hero-stats">
         <div><div class="stat-num">2026</div><div class="stat-label">Angkatan MUA</div></div>
@@ -221,14 +48,13 @@ body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text);li
         <div><div class="stat-num">Bekasi</div><div class="stat-label">Area Layanan</div></div>
       </div>
     </div>
-    <div class="hero-photo">Foto profil / hasil makeup terbaik<br/>akan ditempel di sini</div>
+    <div class="hero-photo">Foto profil<br/>akan ditempel di sini</div>
   </div>
 </section>
 
 <div class="container">
 
-  <!-- WHY -->
-  <section class="section fade-up" id="tentang">
+  <section class="section fade-up">
     <div class="section-head center">
       <span class="section-eyebrow">Kenapa Pilih Saya</span>
       <h2 class="section-title">Riasan yang Bikin Kamu Percaya Diri</h2>
@@ -242,99 +68,51 @@ body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text);li
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section fade-up" id="layanan">
+  <section class="section fade-up">
     <div class="section-head">
       <span class="section-eyebrow">Layanan</span>
       <h2 class="section-title">Pilihan Makeup</h2>
-      <p class="section-sub">Dua kategori utama, tiap kategori punya pilihan gaya sendiri.</p>
+      <p class="section-sub">Dua kategori utama, klik untuk lihat detail tiap layanan.</p>
     </div>
     <div class="services-list">
-      <div class="service-row">
+      <a href="layanan.html#glam" class="service-row">
         <div class="service-num">01</div>
         <div>
           <h4>Makeup Pengantin</h4>
-          <p>Riasan pengantin lengkap dari konsultasi sampai touch-up kit, sesuai gaya yang kamu mau.</p>
+          <p>Dari konsultasi sampai touch-up kit, sesuai gaya yang kamu mau.</p>
           <div class="service-looks">
             <span class="look-chip">Glam Look / Bold</span>
             <span class="look-chip">Thailand Look</span>
           </div>
         </div>
-        <div class="service-price">Hub. WhatsApp</div>
-      </div>
-      <div class="service-row">
+        <div class="service-price">Lihat Detail →</div>
+      </a>
+      <a href="layanan.html#wisuda" class="service-row">
         <div class="service-num">02</div>
         <div>
           <h4>Makeup Wisuda</h4>
           <p>Tampilan fresh, natural, dan fotogenik untuk hari kelulusan.</p>
-          <div class="service-looks">
-            <span class="look-chip">Basic Look</span>
-          </div>
+          <div class="service-looks"><span class="look-chip">Basic Look</span></div>
         </div>
-        <div class="service-price">Hub. WhatsApp</div>
-      </div>
+        <div class="service-price">Lihat Detail →</div>
+      </a>
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
-  <section class="section fade-up" id="portofolio">
+  <section class="section fade-up">
     <div class="section-head center">
       <span class="section-eyebrow">Portofolio</span>
-      <h2 class="section-title">Hasil Karya</h2>
-      <p class="section-sub">Foto akan diupdate seiring bertambahnya klien — ini slot yang sudah disiapkan.</p>
+      <h2 class="section-title">Cuplikan Gallery</h2>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item"><span class="cap">Glam Look</span></div>
-      <div class="gallery-item"><span class="cap">Thailand Look</span></div>
-      <div class="gallery-item"><span class="cap">Basic Look — Wisuda</span></div>
-      <div class="gallery-item"><span class="cap">Basic Look — Wisuda</span></div>
+      <a href="gallery.html" class="gallery-item"><span class="cap">Glam Look</span></a>
+      <a href="gallery.html" class="gallery-item"><span class="cap">Thailand Look</span></a>
+      <a href="gallery.html" class="gallery-item"><span class="cap">Basic Look</span></a>
+      <a href="gallery.html" class="gallery-item"><span class="cap">Basic Look</span></a>
     </div>
-    <p class="gallery-note">✦ Tinggal ganti background <code>.gallery-item</code> dengan foto hasil makeup asli</p>
+    <p class="gallery-note"><a href="gallery.html" style="color:var(--wine);font-weight:600;text-decoration:none">Lihat semua portofolio →</a></p>
   </section>
 
-  <!-- PRICING -->
-  <section class="section fade-up" id="harga">
-    <div class="section-head center">
-      <span class="section-eyebrow">Harga &amp; Paket</span>
-      <h2 class="section-title">Investasi Tampil Cantik</h2>
-      <p class="section-sub">Isi nominal di bawah sesuai harga yang sudah kamu tentukan.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <h4>Basic Look</h4>
-        <div class="amount">Rp XXX.XXX <span>/ sesi</span></div>
-        <ul>
-          <li>Makeup wisuda / party</li>
-          <li>Konsultasi look</li>
-          <li>Touch-up kit</li>
-        </ul>
-        <a href="https://wa.me/6285770592217" class="btn btn-gold" style="width:100%;justify-content:center">Tanya Harga</a>
-      </div>
-      <div class="price-card featured">
-        <span class="badge">Paling Diminati</span>
-        <h4>Thailand Look</h4>
-        <div class="amount">Rp XXX.XXX <span>/ sesi</span></div>
-        <ul>
-          <li>Makeup pengantin soft &amp; natural</li>
-          <li>Trial makeup</li>
-          <li>Touch-up kit</li>
-        </ul>
-        <a href="https://wa.me/6285770592217" class="btn btn-gold" style="width:100%;justify-content:center">Tanya Harga</a>
-      </div>
-      <div class="price-card">
-        <h4>Glam Look / Bold</h4>
-        <div class="amount">Rp XXX.XXX <span>/ sesi</span></div>
-        <ul>
-          <li>Makeup pengantin bold &amp; berani</li>
-          <li>Trial makeup</li>
-          <li>Touch-up kit</li>
-        </ul>
-        <a href="https://wa.me/6285770592217" class="btn btn-gold" style="width:100%;justify-content:center">Tanya Harga</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
   <section class="section fade-up">
     <div class="section-head center">
       <span class="section-eyebrow">Testimoni</span>
@@ -354,41 +132,6 @@ body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text);li
     </div>
   </section>
 
-  <!-- BOOKING STEPS -->
-  <section class="section fade-up">
-    <div class="section-head center">
-      <span class="section-eyebrow">Cara Booking</span>
-      <h2 class="section-title">5 Langkah Mudah</h2>
-    </div>
-    <div class="steps-row">
-      <div class="step-card"><div class="step-num">1</div><h5>Chat WhatsApp</h5><p>Hubungi untuk konsultasi awal</p></div>
-      <div class="step-card"><div class="step-num">2</div><h5>Info Acara</h5><p>Tanggal, jenis acara &amp; lokasi</p></div>
-      <div class="step-card"><div class="step-num">3</div><h5>Pilih Look</h5><p>Konfirmasi paket &amp; harga</p></div>
-      <div class="step-card"><div class="step-num">4</div><h5>Kunci Tanggal</h5><p>Bayar DP untuk konfirmasi</p></div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section fade-up" id="faq">
-    <div class="section-head center">
-      <span class="section-eyebrow">FAQ</span>
-      <h2 class="section-title">Pertanyaan Umum</h2>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)"><span>Berapa lama sebelumnya harus booking?</span><span class="plus">+</span></div>
-      <div class="faq-a"><p>Disarankan booking minimal 2–3 minggu sebelumnya, terutama untuk acara wisuda dan wedding musim ramai.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)"><span>Apakah datang ke lokasi (home service)?</span><span class="plus">+</span></div>
-      <div class="faq-a"><p>Ya, layanan panggilan — datang ke rumah, kampus, atau venue acara di area Kabupaten Bekasi &amp; sekitarnya.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)"><span>Apa saja yang perlu disiapkan sebelum sesi?</span><span class="plus">+</span></div>
-      <div class="faq-a"><p>Bersihkan wajah dari skincare/makeup sebelumnya, dan siapkan referensi look yang diinginkan (foto/Pinterest).</p></div>
-    </div>
-  </section>
-
-  <!-- CTA -->
   <section class="section fade-up">
     <div class="cta-band">
       <h3>Siap Tampil Memukau?</h3>
@@ -399,7 +142,7 @@ body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text);li
 
 </div>
 
-<footer class="footer" id="kontak">
+<footer class="footer">
   <div class="container">
     <div class="footer-brand">
       <div class="name">Siti<span>Amelia</span></div>
@@ -408,10 +151,10 @@ body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text);li
     <div>
       <h4>Navigasi</h4>
       <ul class="footer-links">
-        <li><a href="#tentang">Tentang</a></li>
-        <li><a href="#layanan">Layanan</a></li>
-        <li><a href="#portofolio">Portofolio</a></li>
-        <li><a href="#harga">Harga</a></li>
+        <li><a href="about.html">Tentang</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
     </div>
     <div>
@@ -427,18 +170,6 @@ body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--text);li
 </footer>
 
 <a href="https://wa.me/6285770592217" class="wa-float" target="_blank" title="Chat WhatsApp">💬</a>
-
-<script>
-document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
-const observer=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.1});
-document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){
-  e.preventDefault();
-  const t=document.querySelector(this.getAttribute('href'));
-  if(t){t.scrollIntoView({behavior:'smooth'});document.getElementById('navLinks').classList.remove('open');}
-}));
-function toggleFaq(el){el.parentElement.classList.toggle('open');}
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>
