@@ -312,3 +312,51 @@ img{max-width:100%;display:block}
   .section-title{font-size:1.7rem}
   .blog-grid{grid-template-columns:1fr}
 }
+/* Membuat hero menjadi 2 kolom (Teks Kiri, Video Kanan) */
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+/* Mengatur lebar teks */
+.hero-text {
+    flex: 1;
+    max-width: 550px;
+}
+
+/* Mengatur tempat video */
+.hero-video-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Mengatur video agar rapi dan tidak gepeng */
+.hero-video {
+    width: 100%;
+    max-width: 400px; /* Atur lebar video sesuai selera */
+    aspect-ratio: 9 / 16; /* Format potrait (vertikal) seperti Reels/TikTok */
+    object-fit: cover;
+    border-radius: 20px; /* Bikin sudut melengkung */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Biar terlihat elegan */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Frame tipis warna emas samar */
+    background-color: #000; /* Warna background saat video loading */
+}
+
+/* Supaya responsif di HP */
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column-reverse; /* Video jadi di atas, teks di bawah di HP */
+        gap: 2rem;
+        text-align: center;
+    }
+    .hero-text {
+        max-width: 100%;
+    }
+    .hero-video {
+        max-width: 100%;
+        aspect-ratio: 16 / 9; /* Di HP mending jadi landscape (lebar) biar ga kepanjangan */
+    }
+}
