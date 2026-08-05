@@ -366,3 +366,46 @@ img{max-width:100%;display:block}
         aspect-ratio: 9 / 16;
     }
 }
+/* --- LAYANAN: GRID TOMBOL --- */
+.service-tags-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom seperti di gambar */
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.service-tag-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--white);
+    border: 2px solid var(--wine); /* Bingkai warna merah anggur */
+    border-radius: 8px; /* Sudut agak tumpul */
+    padding: 1rem 0.5rem;
+    text-decoration: none;
+    color: var(--wine-dark);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.service-tag-btn:hover {
+    background: var(--wine); /* Berubah warna saat disentuh mouse */
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsif untuk HP (jadi 2 kolom atau 1 kolom) */
+@media (max-width: 900px) {
+    .service-tags-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .service-tags-grid {
+        grid-template-columns: 1fr; /* Di HP jadinya 1 kolom ke bawah */
+    }
+}
