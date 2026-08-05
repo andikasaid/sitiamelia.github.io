@@ -328,6 +328,9 @@ img{max-width:100%;display:block}
     flex: 1;
     display: flex;
     justify-content: center;
+  /* --- TAMBAHKAN INI --- */
+    margin-left: 2rem;  /* Geser videonya sedikit ke kanan */
+    padding-right: 1rem; /* Mengurangi jarak kosong di sebelah kanan video */
 }
 
 .hero-video {
