@@ -108,14 +108,15 @@ img{max-width:100%;display:block}
     background: linear-gradient(150deg, var(--blush), var(--gold-soft));
     display: flex;
     align-items: flex-end;
-    padding: 1rem;
+    justify-content: flex-start;
+    
+    /* --- PERBAIKAN PENTING --- */
+    padding: 0; /* Hapus padding agar gambar penuh dari ujung ke ujung */
     position: relative;
-    overflow: hidden; /* Ini penting agar gambar tidak keluar dari kotak */
+    overflow: hidden; 
     box-shadow: var(--shadow);
     transition: .3s;
     text-decoration: none;
-    
-    /* Tambahan agar elemen fleksibel */
     flex-direction: column; 
 }
 
@@ -124,31 +125,33 @@ img{max-width:100%;display:block}
     box-shadow: var(--shadow-lg);
 }
 
-/* --- Perbaikan Utama: Mengatur Foto (img) di dalam kotak --- */
+/* --- Foto (img) di dalam kotak --- */
 .gallery-item img {
-    position: absolute;      /* Foto diletakkan di belakang teks */
+    position: absolute;      
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;       /* Ini jawabannya! Mengisi penuh tanpa gepeng, memotong pinggir */
-    object-position: center; /* Mengambil bagian tengah foto */
-    z-index: 0;              /* Foto berada di layer paling bawah */
-    border-radius: 14px;     /* Membuat sudut foto juga melengkung */
+    object-fit: cover;       
+    object-position: center; 
+    z-index: 0;              
+    border-radius: 14px;     /* Sudut foto mengikuti kotak */
 }
 
 /* --- Teks Keterangan (Cap) --- */
 .gallery-item .cap {
-    position: relative;      /* Agar teks berada di atas foto */
-    z-index: 1;              /* Teks berada di layer atas */
-    background: rgba(58, 18, 28, .55);
+    position: absolute;      /* Ubah menjadi absolute agar tidak terdorong */
+    bottom: 15px;            /* Jarak dari bawah */
+    left: 15px;              /* Jarak dari kiri */
+    z-index: 1;              
+    background: rgba(58, 18, 28, .6);
     color: var(--white);
     font-size: .72rem;
     font-weight: 600;
-    padding: 6px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     backdrop-filter: blur(4px);
-    pointer-events: none;    /* Agar teks tidak menghalangi klik */
+    pointer-events: none;    
 }
 .gallery-note{text-align:center;color:var(--text-muted);font-size:.85rem;margin-top:1.6rem}
 
