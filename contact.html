@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact Us — Siti Amelia MUA</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo">Siti<span>Amelia</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="about.html">Tentang</a></li>
+      <li class="has-dropdown">
+        <a href="layanan.html">Layanan</a>
+        <ul class="dropdown">
+          <li><a href="layanan.html#wisuda">Makeup Wisuda — Basic Look</a></li>
+          <li><a href="layanan.html#glam">Makeup Pengantin — Glam / Bold</a></li>
+          <li><a href="layanan.html#thailand">Makeup Pengantin — Thailand Look</a></li>
+        </ul>
+      </li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Booking</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">✦ Contact</span>
+    <h1>Konsultasi &amp; <span>Booking</span></h1>
+    <p>Isi form atau langsung chat WhatsApp untuk cek ketersediaan tanggal.</p>
+    <div class="breadcrumb"><a href="index.html">Beranda</a> / Contact</div>
+  </div>
+</section>
+
+<div class="container">
+  <section class="section fade-up">
+    <div class="contact-grid">
+      <form class="contact-form" onsubmit="event.preventDefault(); window.open('https://wa.me/6285770592217?text=' + encodeURIComponent('Halo Kak Siti, nama saya ' + this.nama.value + '. Saya mau tanya soal ' + this.layanan.value + ' untuk tanggal ' + this.tanggal.value + '. ' + this.pesan.value), '_blank');">
+        <div>
+          <label>Nama</label>
+          <input type="text" name="nama" required placeholder="Nama kamu"/>
+        </div>
+        <div>
+          <label>Jenis Layanan</label>
+          <select name="layanan" required>
+            <option value="Makeup Wisuda (Basic Look)">Makeup Wisuda — Basic Look</option>
+            <option value="Makeup Pengantin (Glam Look/Bold)">Makeup Pengantin — Glam Look / Bold</option>
+            <option value="Makeup Pengantin (Thailand Look)">Makeup Pengantin — Thailand Look</option>
+          </select>
+        </div>
+        <div>
+          <label>Tanggal Acara</label>
+          <input type="date" name="tanggal" required/>
+        </div>
+        <div>
+          <label>Pesan Tambahan</label>
+          <textarea name="pesan" rows="4" placeholder="Ceritakan sedikit soal acaramu..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-wine btn-block">Kirim via WhatsApp</button>
+      </form>
+
+      <div>
+        <div class="contact-info-card">
+          <span class="ic">💬</span>
+          <div><h5>WhatsApp</h5><p><a href="https://wa.me/6285770592217">0857-7059-2217</a></p></div>
+        </div>
+        <div class="contact-info-card">
+          <span class="ic">✉️</span>
+          <div><h5>Email</h5><p><a href="mailto:sitiamelia@email.com">sitiamelia@email.com</a></p></div>
+        </div>
+        <div class="contact-info-card">
+          <span class="ic">📍</span>
+          <div><h5>Area Layanan</h5><p>Kabupaten Bekasi &amp; sekitarnya (home service)</p></div>
+        </div>
+        <div class="contact-info-card">
+          <span class="ic">🕐</span>
+          <div><h5>Jam Respon</h5><p>Setiap hari, 09.00–20.00 WIB</p></div>
+        </div>
+        <div class="map-box">📍 Kabupaten Bekasi, Jawa Barat</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-up">
+    <div class="section-head center">
+      <span class="section-eyebrow">Cara Booking</span>
+      <h2 class="section-title">5 Langkah Mudah</h2>
+    </div>
+    <div class="steps-row">
+      <div class="step-card"><div class="step-num">1</div><h5>Chat WhatsApp</h5><p>Hubungi untuk konsultasi awal</p></div>
+      <div class="step-card"><div class="step-num">2</div><h5>Info Acara</h5><p>Tanggal, jenis acara &amp; lokasi</p></div>
+      <div class="step-card"><div class="step-num">3</div><h5>Pilih Look</h5><p>Konfirmasi paket &amp; harga</p></div>
+      <div class="step-card"><div class="step-num">4</div><h5>Kunci Tanggal</h5><p>Bayar DP untuk konfirmasi</p></div>
+    </div>
+  </section>
+
+  <section class="section fade-up">
+    <div class="section-head center">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="section-title">Pertanyaan Umum</h2>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>Berapa lama sebelumnya harus booking?</span><span class="plus">+</span></div>
+      <div class="faq-a"><p>Disarankan booking minimal 2–3 minggu sebelumnya, terutama untuk acara wisuda dan wedding musim ramai.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>Apakah datang ke lokasi (home service)?</span><span class="plus">+</span></div>
+      <div class="faq-a"><p>Ya, layanan panggilan — datang ke rumah, kampus, atau venue acara di area Kabupaten Bekasi &amp; sekitarnya.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>Apa saja yang perlu disiapkan sebelum sesi?</span><span class="plus">+</span></div>
+      <div class="faq-a"><p>Bersihkan wajah dari skincare/makeup sebelumnya, dan siapkan referensi look yang diinginkan (foto/Pinterest).</p></div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">
+      <div class="name">Siti<span>Amelia</span></div>
+      <p>Makeup Artist angkatan 2026 berbasis di Kabupaten Bekasi. Siap membantu kamu tampil sempurna di hari spesial.</p>
+    </div>
+    <div>
+      <h4>Navigasi</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">Tentang</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/6285770592217">💬 0857-7059-2217</a></li>
+        <li><a href="mailto:sitiamelia@email.com">✉️ sitiamelia@email.com</a></li>
+        <li style="color:rgba(255,255,255,.4)">📍 Kabupaten Bekasi</li>
+      </ul>
+    </div>
+    <div class="footer-bottom">© 2026 Siti Amelia MUA · Dibuat dengan ❤️</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6285770592217" class="wa-float" target="_blank" title="Chat WhatsApp">💬</a>
+<script src="main.js"></script>
+</body>
+</html>

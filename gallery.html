@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gallery — Siti Amelia MUA</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo">Siti<span>Amelia</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="about.html">Tentang</a></li>
+      <li class="has-dropdown">
+        <a href="layanan.html">Layanan</a>
+        <ul class="dropdown">
+          <li><a href="layanan.html#wisuda">Makeup Wisuda — Basic Look</a></li>
+          <li><a href="layanan.html#glam">Makeup Pengantin — Glam / Bold</a></li>
+          <li><a href="layanan.html#thailand">Makeup Pengantin — Thailand Look</a></li>
+        </ul>
+      </li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Booking</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">✦ Gallery</span>
+    <h1>Hasil <span>Karya</span></h1>
+    <p>Foto akan diupdate seiring bertambahnya klien — slot di bawah sudah disiapkan per kategori.</p>
+    <div class="breadcrumb"><a href="index.html">Beranda</a> / Gallery</div>
+  </div>
+</section>
+
+<div class="container">
+  <section class="section fade-up">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="glam">Glam Look</button>
+      <button class="filter-btn" data-filter="thailand">Thailand Look</button>
+      <button class="filter-btn" data-filter="wisuda">Basic Look (Wisuda)</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-cat="glam"><span class="cap">Glam Look #1</span></div>
+      <div class="gallery-item" data-cat="glam"><span class="cap">Glam Look #2</span></div>
+      <div class="gallery-item" data-cat="thailand"><span class="cap">Thailand Look #1</span></div>
+      <div class="gallery-item" data-cat="thailand"><span class="cap">Thailand Look #2</span></div>
+      <div class="gallery-item" data-cat="wisuda"><span class="cap">Basic Look #1</span></div>
+      <div class="gallery-item" data-cat="wisuda"><span class="cap">Basic Look #2</span></div>
+      <div class="gallery-item" data-cat="wisuda"><span class="cap">Basic Look #3</span></div>
+      <div class="gallery-item" data-cat="glam"><span class="cap">Glam Look #3</span></div>
+    </div>
+    <p class="gallery-note">✦ Ganti background tiap <code>.gallery-item</code> dengan foto hasil makeup asli (pakai <code>style="background-image:url('foto.jpg')"</code>)</p>
+  </section>
+
+  <section class="section fade-up">
+    <div class="cta-band">
+      <h3>Suka Sama Salah Satu Look?</h3>
+      <p>Langsung tanya ketersediaan tanggal via WhatsApp.</p>
+      <a href="https://wa.me/6285770592217" class="btn btn-gold" target="_blank">💬 Chat WhatsApp</a>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">
+      <div class="name">Siti<span>Amelia</span></div>
+      <p>Makeup Artist angkatan 2026 berbasis di Kabupaten Bekasi. Siap membantu kamu tampil sempurna di hari spesial.</p>
+    </div>
+    <div>
+      <h4>Navigasi</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">Tentang</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/6285770592217">💬 0857-7059-2217</a></li>
+        <li><a href="mailto:sitiamelia@email.com">✉️ sitiamelia@email.com</a></li>
+        <li style="color:rgba(255,255,255,.4)">📍 Kabupaten Bekasi</li>
+      </ul>
+    </div>
+    <div class="footer-bottom">© 2026 Siti Amelia MUA · Dibuat dengan ❤️</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6285770592217" class="wa-float" target="_blank" title="Chat WhatsApp">💬</a>
+<script src="main.js"></script>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    const f=this.dataset.filter;
+    document.querySelectorAll('#galleryGrid .gallery-item').forEach(item=>{
+      item.style.display=(f==='all'||item.dataset.cat===f)?'flex':'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
