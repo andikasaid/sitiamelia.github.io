@@ -312,7 +312,7 @@ img{max-width:100%;display:block}
   .section-title{font-size:1.7rem}
   .blog-grid{grid-template-columns:1fr}
 }
-/* Membuat hero menjadi 2 kolom (Teks Kiri, Video Kanan) */
+/* --- KOLOM VIDEO DI HERO --- */
 .hero .container {
     display: flex;
     align-items: center;
@@ -320,35 +320,32 @@ img{max-width:100%;display:block}
     gap: 3rem;
 }
 
-/* Mengatur lebar teks */
 .hero-text {
-    flex: 1;
+    flex: 1.2; /* Teks sedikit lebih lebar */
     max-width: 550px;
 }
 
-/* Mengatur tempat video */
 .hero-video-wrapper {
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
-/* Mengatur video agar rapi dan tidak gepeng */
 .hero-video {
     width: 100%;
-    max-width: 400px; /* Atur lebar video sesuai selera */
-    aspect-ratio: 9 / 16; /* Format potrait (vertikal) seperti Reels/TikTok */
+    max-width: 320px; /* Dikecilkan sedikit agar tidak terlalu besar dibanding teks */
+    aspect-ratio: 9 / 16; /* Format portrait */
     object-fit: cover;
-    border-radius: 20px; /* Bikin sudut melengkung */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Biar terlihat elegan */
-    border: 2px solid rgba(255, 255, 255, 0.1); /* Frame tipis warna emas samar */
-    background-color: #000; /* Warna background saat video loading */
+    border-radius: 24px; 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); 
+    border: 2px solid rgba(255, 255, 255, 0.15); 
+    background-color: #3A121C; /* Warna background loading biar selaras */
 }
 
-/* Supaya responsif di HP */
+/* RESPONSIVE HP */
 @media (max-width: 768px) {
     .hero .container {
-        flex-direction: column-reverse; /* Video jadi di atas, teks di bawah di HP */
+        flex-direction: column-reverse; /* Video di atas, teks di bawah */
         gap: 2rem;
         text-align: center;
     }
@@ -357,6 +354,6 @@ img{max-width:100%;display:block}
     }
     .hero-video {
         max-width: 100%;
-        aspect-ratio: 16 / 9; /* Di HP mending jadi landscape (lebar) biar ga kepanjangan */
+        aspect-ratio: 16 / 9; /* Di HP jadi landscape biar muat */
     }
 }
